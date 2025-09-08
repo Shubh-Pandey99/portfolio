@@ -122,10 +122,7 @@ const HeroSection = () => {
               <Card key={index} className="bg-card/50 backdrop-blur-sm border-border hover:border-[#0070C0]/50 transition-colors duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-[#0070C0] mb-2">
-                    {counters[index] !== undefined ? 
-                      `${counters[index]}${stat.value.replace(/[0-9.]/g, '')}` : 
-                      '0'
-                    }
+                    {counters[index] || stat.value}
                   </div>
                   <p className="text-sm text-muted-foreground font-medium">
                     {stat.label}
