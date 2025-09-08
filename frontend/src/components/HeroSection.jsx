@@ -11,20 +11,32 @@ const HeroSection = () => {
   useEffect(() => {
     const animateCounters = () => {
       hero.stats.forEach((stat, index) => {
-        const target = parseInt(stat.value.replace(/[^0-9.]/g, ''));
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
+        const numericValue = stat.value.match(/[\d.]+/);
+        if (numericValue) {
+          const target = parseFloat(numericValue[0]);
+          let current = 0;
+          const increment = target / 50;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            const formattedValue = stat.value.includes('.') 
+              ? current.toFixed(1) 
+              : Math.floor(current).toString();
+            setCounters(prev => ({
+              ...prev,
+              [index]: formattedValue + stat.value.replace(/[\d.]+/, '')
+            }));
+          }, 40);
+        } else {
+          // For non-numeric values, just set them directly
           setCounters(prev => ({
             ...prev,
-            [index]: current.toFixed(stat.value.includes('.') ? 1 : 0)
+            [index]: stat.value
           }));
-        }, 40);
+        }
       });
     };
 
