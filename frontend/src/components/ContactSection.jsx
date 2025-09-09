@@ -45,11 +45,11 @@ const ContactSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0070C0]/10 mb-4">
-              <MessageCircle className="w-8 h-8 text-[#0070C0]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-violet-600/10 to-indigo-600/10 mb-4">
+              <MessageCircle className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
             </div>
             <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
-            <div className="w-24 h-1 bg-[#0070C0] mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 mx-auto rounded-full"></div>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Let's discuss how we can work together to build reliable, scalable systems
             </p>
@@ -59,9 +59,6 @@ const ContactSection = () => {
             {/* Contact Information */}
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-semibold mb-6 text-[#0070C0]">
-                  Let's Connect
-                </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   I'm always interested in discussing new opportunities, 
                   challenging projects, and innovative solutions in DevOps and cloud infrastructure. 
@@ -71,11 +68,11 @@ const ContactSection = () => {
 
               {/* Contact Cards */}
               <div className="space-y-4">
-                <Card className="bg-card/50 border-border hover:border-[#0070C0]/50 transition-colors duration-300">
+                <Card className="bg-card/50 border-border hover:border-violet-500/50 transition-colors duration-300 shadow-md">
                   <CardContent className="p-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-[#0070C0]/10 flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-[#0070C0]" />
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 flex items-center justify-center border border-violet-200/50 dark:border-violet-800/50">
+                        <Mail className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
                       </div>
                       <div>
                         <p className="font-semibold">Email</p>
@@ -85,11 +82,11 @@ const ContactSection = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/50 border-border hover:border-[#0070C0]/50 transition-colors duration-300">
+                <Card className="bg-card/50 border-border hover:border-violet-500/50 transition-colors duration-300 shadow-md">
                   <CardContent className="p-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-[#0070C0]/10 flex items-center justify-center">
-                        <Phone className="w-6 h-6 text-[#0070C0]" />
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 flex items-center justify-center border border-violet-200/50 dark:border-violet-800/50">
+                        <Phone className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
                       </div>
                       <div>
                         <p className="font-semibold">Phone</p>
@@ -99,11 +96,11 @@ const ContactSection = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/50 border-border hover:border-[#0070C0]/50 transition-colors duration-300">
+                <Card className="bg-card/50 border-border hover:border-violet-500/50 transition-colors duration-300 shadow-md">
                   <CardContent className="p-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-[#0070C0]/10 flex items-center justify-center">
-                        <Linkedin className="w-6 h-6 text-[#0070C0]" />
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 flex items-center justify-center border border-violet-200/50 dark:border-violet-800/50">
+                        <Linkedin className="w-6 h-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
                       </div>
                       <div>
                         <p className="font-semibold">LinkedIn</p>
@@ -118,26 +115,26 @@ const ContactSection = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
                   onClick={handleEmailMe}
-                  className="bg-[#0070C0] hover:bg-[#005799] text-white px-6 py-3"
+                  className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <Mail className="mr-2 h-5 w-5" />
-                  Email Me
+                  📩 Email Me
                 </Button>
                 <Button
                   variant="outline"
                   onClick={handleConnectLinkedIn}
-                  className="border-[#0070C0] text-[#0070C0] hover:bg-[#0070C0] hover:text-white px-6 py-3"
+                  className="border-violet-300 dark:border-violet-700 text-violet-600 dark:text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:text-white hover:border-transparent px-6 py-3 transition-all duration-300"
                 >
                   <Linkedin className="mr-2 h-5 w-5" />
-                  Connect on LinkedIn
+                  🔗 Connect on LinkedIn
                 </Button>
               </div>
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-card/80 backdrop-blur-sm border border-border">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-[#0070C0]">
+                <CardTitle className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
                   Send a Message
                 </CardTitle>
               </CardHeader>
@@ -151,7 +148,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="border-border focus:border-[#0070C0] focus:ring-[#0070C0]"
+                      className="border-border focus:border-violet-500 focus:ring-violet-500"
                     />
                   </div>
                   <div>
@@ -162,7 +159,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="border-border focus:border-[#0070C0] focus:ring-[#0070C0]"
+                      className="border-border focus:border-violet-500 focus:ring-violet-500"
                     />
                   </div>
                   <div>
@@ -173,12 +170,12 @@ const ContactSection = () => {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="border-border focus:border-[#0070C0] focus:ring-[#0070C0] resize-none"
+                      className="border-border focus:border-violet-500 focus:ring-violet-500 resize-none"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-[#0070C0] hover:bg-[#005799] text-white py-3"
+                    className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <Send className="mr-2 h-5 w-5" />
                     Send Message
