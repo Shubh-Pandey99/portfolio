@@ -8,7 +8,7 @@ import { portfolioData } from '../data/mockData';
 const BlogsSection = () => {
   const { blogs } = portfolioData;
 
-  const handleReadOnMedium = (url) => {
+  const handleReadBlog = (url) => {
     window.open(url, '_blank');
   };
 
@@ -18,11 +18,11 @@ const BlogsSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0070C0]/10 mb-4">
-              <BookOpen className="w-8 h-8 text-[#0070C0]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-violet-600/10 to-indigo-600/10 mb-4">
+              <BookOpen className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
             </div>
-            <h2 className="text-4xl font-bold mb-4">Technical Blogs</h2>
-            <div className="w-24 h-1 bg-[#0070C0] mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-bold mb-4">Blogs</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 mx-auto rounded-full"></div>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Sharing knowledge and insights about cloud technologies and DevOps practices
             </p>
@@ -33,16 +33,30 @@ const BlogsSection = () => {
             {blogs.map((blog, index) => (
               <Card 
                 key={index} 
-                className="bg-card/80 backdrop-blur-sm border border-border hover:border-[#0070C0]/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
+                className="bg-card/80 backdrop-blur-sm border border-border hover:border-violet-500/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group overflow-hidden shadow-md"
               >
+                {/* Featured Image */}
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={blog.thumbnail} 
+                    alt={blog.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      const placeholder = e.target.parentElement;
+                      placeholder.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 flex items-center justify-center"><div class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 text-4xl">📝</div></div>';
+                    }}
+                  />
+                </div>
+
                 <CardHeader>
-                  <CardTitle className="text-lg font-bold text-[#0070C0] leading-tight group-hover:text-[#005799] transition-colors duration-300">
+                  <CardTitle className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 leading-tight group-hover:from-violet-700 group-hover:to-indigo-700 transition-all duration-300 line-clamp-2">
                     {blog.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-foreground/90 leading-relaxed text-sm">
-                    {blog.excerpt}
+                  <p className="text-foreground/90 leading-relaxed text-sm line-clamp-3">
+                    {blog.summary}
                   </p>
                   
                   {/* Blog Meta */}
@@ -53,7 +67,7 @@ const BlogsSection = () => {
                     </div>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
-                      {blog.date}
+                      {blog.year}
                     </div>
                   </div>
 
@@ -62,11 +76,11 @@ const BlogsSection = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => handleReadOnMedium(blog.url)}
-                      className="w-full border-[#0070C0] text-[#0070C0] hover:bg-[#0070C0] hover:text-white transition-colors duration-300"
+                      onClick={() => handleReadBlog(blog.url)}
+                      className="w-full border-violet-300 dark:border-violet-700 text-violet-600 dark:text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:text-white hover:border-transparent transition-all duration-300"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Read on Medium
+                      Read Article
                     </Button>
                   </div>
                 </CardContent>
@@ -76,9 +90,9 @@ const BlogsSection = () => {
 
           {/* Writing Philosophy */}
           <div className="mt-12 text-center">
-            <Card className="bg-gradient-to-r from-[#0070C0]/5 to-[#0070C0]/10 border-[#0070C0]/20">
+            <Card className="bg-gradient-to-r from-violet-50/50 to-indigo-50/50 dark:from-violet-950/30 dark:to-indigo-950/30 border-violet-200/50 dark:border-violet-800/50 shadow-lg">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4 text-[#0070C0]">
+                <h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
                   Knowledge Sharing
                 </h3>
                 <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
@@ -87,13 +101,13 @@ const BlogsSection = () => {
                   Each article is based on hands-on experience and practical insights.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2">
-                  <Badge variant="secondary" className="bg-[#0070C0]/10 text-[#0070C0]">
+                  <Badge className="bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 text-violet-700 dark:text-violet-300 border border-violet-200/50 dark:border-violet-800/50">
                     AWS Deep Dives
                   </Badge>
-                  <Badge variant="secondary" className="bg-[#0070C0]/10 text-[#0070C0]">
+                  <Badge className="bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 text-violet-700 dark:text-violet-300 border border-violet-200/50 dark:border-violet-800/50">
                     DevOps Best Practices
                   </Badge>
-                  <Badge variant="secondary" className="bg-[#0070C0]/10 text-[#0070C0]">
+                  <Badge className="bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 text-violet-700 dark:text-violet-300 border border-violet-200/50 dark:border-violet-800/50">
                     Cloud Architecture
                   </Badge>
                 </div>
