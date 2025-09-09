@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Badge } from './ui/badge';
 import { Briefcase, MapPin, Calendar } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
 
@@ -13,11 +12,11 @@ const ExperienceSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0070C0]/10 mb-4">
-              <Briefcase className="w-8 h-8 text-[#0070C0]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-violet-600/10 to-indigo-600/10 mb-4">
+              <Briefcase className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
             </div>
-            <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
-            <div className="w-24 h-1 bg-[#0070C0] mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-bold mb-4">Experience</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 mx-auto rounded-full"></div>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Building scalable, reliable systems across cloud platforms
             </p>
@@ -28,12 +27,12 @@ const ExperienceSection = () => {
             {experience.map((job, index) => (
               <Card 
                 key={index} 
-                className="bg-card/80 backdrop-blur-sm border border-border hover:border-[#0070C0]/50 transition-all duration-300 hover:shadow-lg"
+                className="bg-card/80 backdrop-blur-sm border border-border hover:border-violet-500/50 transition-all duration-300 hover:shadow-lg shadow-md"
               >
                 <CardHeader>
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
-                      <CardTitle className="text-xl font-bold text-[#0070C0] mb-2">
+                      <CardTitle className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 mb-2">
                         {job.title}
                       </CardTitle>
                       <h3 className="text-lg font-semibold mb-2">{job.company}</h3>
@@ -54,7 +53,7 @@ const ExperienceSection = () => {
                   <div className="space-y-3">
                     {job.responsibilities.map((responsibility, respIndex) => (
                       <div key={respIndex} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-[#0070C0] rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
                         <p className="text-foreground/90 leading-relaxed">
                           {responsibility}
                         </p>
