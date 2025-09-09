@@ -1,17 +1,12 @@
-// Mock data for Shubh Pandey's Portfolio
+// Mock data for Shubh Pandey's Portfolio - Updated Design
 export const portfolioData = {
   hero: {
     name: "Shubh Pandey",
     title: "DevOps & Site Reliability Engineer",
-    subheading: "Cloud, Automation & Reliability Specialist",
+    subheading: "Cloud • Automation • Reliability • Performance",
     resumeUrl: "/Shubh_Resume.pdf",
     email: "shubhpandet@gmail.com",
-    stats: [
-      { label: "Years Experience", value: "5+" },
-      { label: "Projects", value: "25+" },
-      { label: "System Uptime", value: "99.9%" },
-      { label: "Infra Cost Savings", value: "20%" }
-    ]
+    headshot: "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NTc0MDY2OTR8MA&ixlib=rb-4.1.0&q=85"
   },
   
   about: {
@@ -20,11 +15,11 @@ export const portfolioData = {
 
   skills: {
     "Cloud Platforms": ["AWS", "GCP", "Azure"],
-    "Infra & Automation": ["Terraform", "Ansible", "GitLab CI/CD", "Jenkins", "Docker", "Kubernetes"],
-    "Programming & Scripting": ["Python", "Bash", "TypeScript", "Vue.js", "FastAPI", "SQL", "REST APIs"],
-    "Monitoring & Incident Management": ["CloudWatch", "PagerDuty", "ServiceNow", "Datadog", "Prometheus"],
-    "Collaboration Tools": ["GitHub", "GitLab", "Confluence", "JIRA"],
-    "Operating Systems": ["Windows", "macOS", "Linux (Ubuntu/CentOS)"]
+    "Infrastructure & Automation": ["Terraform", "Ansible", "GitLab CI/CD", "Jenkins", "Docker", "Kubernetes"],
+    "Programming & Scripting": ["Python", "Bash", "TypeScript", "Vue.js", "FastAPI", "REST APIs", "SQL"],
+    "Monitoring & Incident Management": ["CloudWatch", "PagerDuty (Events v2)", "ServiceNow", "Datadog", "Prometheus"],
+    "Tools & Collaboration": ["GitHub", "GitLab", "Confluence", "JIRA"],
+    "Operating Systems": ["Windows", "MacOS", "Linux (Ubuntu/CentOS)"]
   },
 
   experience: [
@@ -38,7 +33,7 @@ export const portfolioData = {
         "Built robust frontend portals using Vue.js and Typescript, hosted on S3 and delivered via CloudFront, improving UI performance by 30%.",
         "Centralized and tuned observability with CloudWatch, OpenSearch/ELK, and Grafana, building unified dashboards for metrics, logs, and traces; integrated EventBridge + Step Functions + PagerDuty.",
         "Containerized IBM Sterling Connect: Direct with Docker, deployed on production EKS and ECS Fargate, enabling secure, scalable file transfers and cutting infra costs by 20%.",
-        "Provisioned the complete infrastructure using Terraform, deploying AWS resources including Lambda, API Gateway, Step Functions, Cognito, DynamoDB, Transfer Family etc.",
+        "Provisioned complete infrastructure using Terraform, deploying AWS resources including Lambda, API Gateway, Step Functions, Cognito, DynamoDB, Transfer Family etc.",
         "Designed backend services using FastAPI on AWS Lambda in Python, ensuring scalable and serverless architecture.",
         "Managed data and user metadata using DynamoDB with encryption via AWS KMS, ensuring adherence to internal policies and external regulations, leading to zero data breaches in 2024."
       ]
@@ -49,7 +44,7 @@ export const portfolioData = {
       period: "Aug 2021 – Dec 2023",
       location: "Noida, India",
       responsibilities: [
-        "Managed AWS services (EC2, RDS, S3, VPC) specializing on fault tolerance and auto-scaling, reducing cloud downtime by 28%.",
+        "Managed AWS services (EC2, RDS, S3, VPC) specializing in fault tolerance and auto-scaling, reducing cloud downtime by 28%.",
         "Configured Datadog and Prometheus monitoring pipelines, defining SLIs and automating alerts/log rotation, improving observability by 15%.",
         "Optimized cloud infrastructure costs with autoscaling, right-sizing, and serverless adoption while maintaining SLAs.",
         "Created Ansible playbooks for system configuration and dependency management, cutting deployment time by 40% across 10+ servers.",
@@ -86,88 +81,88 @@ export const portfolioData = {
     {
       name: "AWS Certified SysOps Administrator – Associate",
       issuer: "Amazon Web Services",
-      validity: "Jul 2025 – Jul 2028",
+      validity: "July 2025 – July 2028",
       badge: "https://images.credly.com/size/340x340/images/63e2caed-f6ef-4d53-8d6b-73d9a2c86b29/aws-sysops-admin-associate.png",
-      verifyUrl: "https://www.credly.com/badges/4c2a0cb4-2594-416a-9a4d-f820f01858f1/public_url"
+      verifyUrl: "#"
     },
     {
       name: "AWS Certified Developer – Associate",
       issuer: "Amazon Web Services",
-      validity: "Jul 2025 – Jul 2028",
+      validity: "July 2025 – July 2028",
       badge: "https://images.credly.com/size/340x340/images/0e3a4ba1-9388-4c9c-b997-27cce5f0b4b9/aws-developer-associate.png",
-      verifyUrl: "https://www.credly.com/badges/844595a4-f38a-4447-b191-8a7a86c9b15a/public_url"
+      verifyUrl: "#"
     },
     {
       name: "AWS Certified Solutions Architect – Associate",
       issuer: "Amazon Web Services",
       validity: "Sep 2023 – Sep 2026",
       badge: "https://images.credly.com/size/340x340/images/0c68a22f-9a59-4e7d-9d1f-ff6c6a6c2c5a/aws-solutions-architect-associate.png",
-      verifyUrl: "https://www.credly.com/badges/cf778dc8-7450-4016-bcc1-f7c8b7315304/public_url"
+      verifyUrl: "#"
     },
     {
       name: "GCP Associate Cloud Engineer",
       issuer: "Google Cloud",
       validity: "Jun 2023 – Jun 2026",
       badge: "https://images.credly.com/size/340x340/images/2f3d0c75-0b8f-4b7c-9f2e-fc476d4c2b5b/google-cloud-associate-cloud-engineer.png",
-      verifyUrl: "https://www.credly.com/badges/beb65be5-586a-48c1-909a-b10e51dfe61f/public_url"
+      verifyUrl: "#"
     },
     {
       name: "Microsoft Azure Fundamentals",
       issuer: "Microsoft",
-      validity: "Earned: Dec 2020",
+      validity: "Dec 2020",
       badge: "https://images.credly.com/size/340x340/images/6331c604-0e02-4bdb-bf3d-0903e1b21f7e/azure-fundamentals.png",
-      verifyUrl: "https://www.credly.com/badges/cf778dc8-7450-4016-bcc1-f7c8b7315304/public_url"
+      verifyUrl: "#"
     }
   ],
 
   projects: [
     {
       title: "Email Remediation Automation (Patent Initiative)",
-      description: "Deployed an automated email remediation system, resulting in L1 support teams resolving the three biggest causes of email incidents without escalation.",
-      techStack: ["Python", "AWS Lambda", "SES", "EventBridge", "Automation"],
-      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/details/projects/"
+      description: "Deployed automated email remediation system, enabling L1 support to resolve top 3 incident causes without escalation.",
+      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
     {
       title: "Mission 70 (2022–Present)",
-      description: "Empowered L1 support teams by automating tasks and documentation, increasing autonomy by 70% and reducing L2 dependency.",
-      techStack: ["Automation", "Documentation", "Process Improvement", "Knowledge Management"],
-      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/details/projects/"
+      description: "Empowered L1 support teams with automation + documentation, increasing autonomy by 70%.",
+      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
     {
       title: "New Joiner Onboarding Kit (2023–Present)",
-      description: "Orchestrated a centralized knowledge base using Confluence, reducing new hire onboarding time by 40% and improving cross-team knowledge sharing for 25+ employees.",
-      techStack: ["Confluence", "Documentation", "Process Automation", "Knowledge Base"],
-      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/details/projects/"
+      description: "Built centralized knowledge base with Confluence, reducing onboarding time by 40% for 25+ employees.",
+      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     }
   ],
 
   blogs: [
     {
-      title: "Mastering AWS Monitoring: A Comprehensive Guide to CloudWatch, EventBridge, CloudTrail & Config",
-      url: "https://medium.com/@shubhpandet/mastering-aws-monitoring-a-comprehensive-guide-to-cloudwatch-eventbridge-cloudtrail-config-ae5ddb31f1c5",
-      excerpt: "A deep dive into AWS monitoring services, covering CloudWatch metrics, EventBridge patterns, CloudTrail logging, and Config compliance monitoring.",
+      title: "Mastering AWS Monitoring: A Comprehensive Guide",
+      summary: "A comprehensive guide to AWS monitoring services, covering CloudWatch, EventBridge, and best practices for enterprise-scale observability.",
       readTime: "12 min read",
-      date: "2024"
+      year: "2024",
+      url: "https://medium.com/@shubhpandet",
+      thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop"
     },
     {
-      title: "Mastering Databases on AWS: DynamoDB, RDS, Aurora, ElastiCache – Deep Dive",
-      url: "https://medium.com/@shubhpandet/%EF%B8%8F-mastering-databases-on-aws-dynamodb-rds-aurora-elasticache-deep-dive-d9db27f2ff47",
-      excerpt: "Comprehensive guide to AWS database services, comparing NoSQL and relational options, performance optimization, and cost management strategies.",
+      title: "Mastering Databases on AWS: DynamoDB, RDS, Aurora, ElastiCache",
+      summary: "Deep dive into AWS database services, comparing options and providing best practices for scalable data solutions.",
       readTime: "15 min read",
-      date: "2024"
+      year: "2024",
+      url: "https://medium.com/@shubhpandet",
+      thumbnail: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=200&fit=crop"
     },
     {
-      title: "Mastering Amazon S3 & Athena: Deep Dive into Storage, Security & Serverless Analytics",
-      url: "https://medium.com/@shubhpandet/%EF%B8%8F-mastering-amazon-s3-athena-deep-dive-into-storage-security-and-serverless-analytics-38e64a44019d",
-      excerpt: "Explore S3 storage classes, security features, lifecycle policies, and serverless analytics with Athena for big data processing.",
+      title: "Mastering Amazon S3 & Athena: Serverless Analytics",
+      summary: "Explore S3 storage patterns and Athena for serverless analytics, including cost optimization and performance tuning.",
       readTime: "18 min read",
-      date: "2024"
+      year: "2024",
+      url: "https://medium.com/@shubhpandet",
+      thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop"
     }
   ],
 
   contact: {
     email: "shubhpandet@gmail.com",
     phone: "+91-9897733982",
-    linkedin: "https://www.linkedin.com/in/shubhpandey9"
+    linkedin: "https://linkedin.com/in/shubhpandey9"
   }
 };

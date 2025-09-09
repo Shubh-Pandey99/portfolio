@@ -12,17 +12,17 @@ const AboutSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0070C0]/10 mb-4">
-              <User className="w-8 h-8 text-[#0070C0]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-violet-600/10 to-indigo-600/10 mb-4">
+              <User className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
             </div>
             <h2 className="text-4xl font-bold mb-4">About Me</h2>
-            <div className="w-24 h-1 bg-[#0070C0] mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 mx-auto rounded-full"></div>
           </div>
 
           {/* About Content */}
-          <Card className="bg-card/80 backdrop-blur-sm border border-border">
+          <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-xl">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-semibold text-[#0070C0]">
+              <CardTitle className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
                 Professional Summary
               </CardTitle>
             </CardHeader>
@@ -35,17 +35,17 @@ const AboutSection = () => {
               
               {/* Key Highlights */}
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="text-2xl font-bold text-[#0070C0] mb-2">99.9%</div>
-                  <p className="text-sm text-muted-foreground">System Availability</p>
+                <div className="text-center p-6 rounded-lg bg-gradient-to-br from-violet-50 to-indigo-50 dark:from-violet-950/50 dark:to-indigo-950/50 border border-violet-200/50 dark:border-violet-800/50">
+                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 mb-2">99.9%</div>
+                  <p className="text-sm text-muted-foreground font-medium">System Availability</p>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="text-2xl font-bold text-[#0070C0] mb-2">28%</div>
-                  <p className="text-sm text-muted-foreground">Downtime Reduction</p>
+                <div className="text-center p-6 rounded-lg bg-gradient-to-br from-violet-50 to-indigo-50 dark:from-violet-950/50 dark:to-indigo-950/50 border border-violet-200/50 dark:border-violet-800/50">
+                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 mb-2">28%</div>
+                  <p className="text-sm text-muted-foreground font-medium">Downtime Reduction</p>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="text-2xl font-bold text-[#0070C0] mb-2">20%</div>
-                  <p className="text-sm text-muted-foreground">Cost Savings</p>
+                <div className="text-center p-6 rounded-lg bg-gradient-to-br from-violet-50 to-indigo-50 dark:from-violet-950/50 dark:to-indigo-950/50 border border-violet-200/50 dark:border-violet-800/50">
+                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 mb-2">20%</div>
+                  <p className="text-sm text-muted-foreground font-medium">Cost Savings</p>
                 </div>
               </div>
             </CardContent>
