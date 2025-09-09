@@ -50,7 +50,7 @@ const Header = ({ isDark, toggleTheme }) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
               <span className="text-white font-bold text-lg">SP</span>
             </div>
             <span className="font-bold text-xl">Shubh Pandey</span>
@@ -62,9 +62,9 @@ const Header = ({ isDark, toggleTheme }) => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 ${
+                className={`text-sm font-medium transition-colors hover:text-orange-500 ${
                   activeSection === item.id 
-                    ? 'text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600' 
+                    ? 'text-orange-500' 
                     : 'text-muted-foreground'
                 }`}
               >
@@ -104,9 +104,9 @@ const Header = ({ isDark, toggleTheme }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-sm font-medium transition-colors hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 ${
+                  className={`text-left text-sm font-medium transition-colors hover:text-orange-500 ${
                     activeSection === item.id 
-                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600' 
+                      ? 'text-orange-500' 
                       : 'text-muted-foreground'
                   }`}
                 >
