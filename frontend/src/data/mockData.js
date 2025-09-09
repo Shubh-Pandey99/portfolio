@@ -1,4 +1,4 @@
-// Mock data for Shubh Pandey's Portfolio - Updated Design
+// Mock data for Shubh Pandey's Portfolio - Orange Theme
 export const portfolioData = {
   hero: {
     name: "Shubh Pandey",
@@ -82,36 +82,36 @@ export const portfolioData = {
       name: "AWS Certified SysOps Administrator – Associate",
       issuer: "Amazon Web Services",
       validity: "July 2025 – July 2028",
-      badge: "https://images.credly.com/size/340x340/images/63e2caed-f6ef-4d53-8d6b-73d9a2c86b29/aws-sysops-admin-associate.png",
-      verifyUrl: "#"
+      badge: "https://images.credly.com/size/340x340/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png",
+      verifyUrl: "https://www.credly.com/badges/4c2a0cb4-2594-416a-9a4d-f820f01858f1/public_url"
     },
     {
       name: "AWS Certified Developer – Associate",
       issuer: "Amazon Web Services",
       validity: "July 2025 – July 2028",
-      badge: "https://images.credly.com/size/340x340/images/0e3a4ba1-9388-4c9c-b997-27cce5f0b4b9/aws-developer-associate.png",
-      verifyUrl: "#"
+      badge: "https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
+      verifyUrl: "https://www.credly.com/badges/844595a4-f38a-4447-b191-8a7a86c9b15a/public_url"
     },
     {
       name: "AWS Certified Solutions Architect – Associate",
       issuer: "Amazon Web Services",
       validity: "Sep 2023 – Sep 2026",
-      badge: "https://images.credly.com/size/340x340/images/0c68a22f-9a59-4e7d-9d1f-ff6c6a6c2c5a/aws-solutions-architect-associate.png",
-      verifyUrl: "#"
+      badge: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+      verifyUrl: "https://www.credly.com/badges/cf778dc8-7450-4016-bcc1-f7c8b7315304/public_url"
     },
     {
       name: "GCP Associate Cloud Engineer",
       issuer: "Google Cloud",
       validity: "Jun 2023 – Jun 2026",
-      badge: "https://images.credly.com/size/340x340/images/2f3d0c75-0b8f-4b7c-9f2e-fc476d4c2b5b/google-cloud-associate-cloud-engineer.png",
-      verifyUrl: "#"
+      badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/60364510",
+      verifyUrl: "https://www.credly.com/badges/beb65be5-586a-48c1-909a-b10e51dfe61f/public_url"
     },
     {
       name: "Microsoft Azure Fundamentals",
       issuer: "Microsoft",
       validity: "Dec 2020",
-      badge: "https://images.credly.com/size/340x340/images/6331c604-0e02-4bdb-bf3d-0903e1b21f7e/azure-fundamentals.png",
-      verifyUrl: "#"
+      badge: "https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
+      verifyUrl: "https://www.credly.com/badges/cf778dc8-7450-4016-bcc1-f7c8b7315304/public_url"
     }
   ],
 
