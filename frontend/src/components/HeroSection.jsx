@@ -1,65 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
 import { Download, Mail } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
 
 const HeroSection = () => {
-  const [counters, setCounters] = useState({});
   const { hero } = portfolioData;
 
-  useEffect(() => {
-    const animateCounters = () => {
-      hero.stats.forEach((stat, index) => {
-        const numericValue = stat.value.match(/[\d.]+/);
-        if (numericValue) {
-          const target = parseFloat(numericValue[0]);
-          let current = 0;
-          const increment = target / 50;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
-            const formattedValue = stat.value.includes('.') 
-              ? current.toFixed(1) 
-              : Math.floor(current).toString();
-            setCounters(prev => ({
-              ...prev,
-              [index]: formattedValue + stat.value.replace(/[\d.]+/, '')
-            }));
-          }, 40);
-        } else {
-          // For non-numeric values, just set them directly
-          setCounters(prev => ({
-            ...prev,
-            [index]: stat.value
-          }));
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          animateCounters();
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    const heroElement = document.getElementById('home');
-    if (heroElement) {
-      observer.observe(heroElement);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const handleDownloadResume = () => {
-    // Create a temporary link to download the resume
     const link = document.createElement('a');
     link.href = hero.resumeUrl;
     link.download = 'Shubh_Resume.pdf';
@@ -73,32 +20,35 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Main Content */}
-          <div className="space-y-6 mb-12">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-                <span className="block">Hi, I'm</span>
-                <span className="block text-[#0070C0]">{hero.name}</span>
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-16 relative overflow-hidden">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-900 via-violet-800 to-indigo-900 opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto gap-12">
+          
+          {/* Content */}
+          <div className="flex-1 text-center lg:text-left space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                <span className="text-white">{hero.name}</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400 mt-2">
+                  {hero.title}
+                </span>
               </h1>
               
-              <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
-                {hero.title}
-              </h2>
-              
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl text-violet-200 font-light">
                 {hero.subheading}
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 size="lg"
                 onClick={handleDownloadResume}
-                className="bg-[#0070C0] hover:bg-[#005799] text-white px-8 py-3 text-lg"
+                className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-4 text-lg border-0 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
@@ -108,7 +58,7 @@ const HeroSection = () => {
                 variant="outline"
                 size="lg"
                 onClick={handleGetInTouch}
-                className="border-[#0070C0] text-[#0070C0] hover:bg-[#0070C0] hover:text-white px-8 py-3 text-lg"
+                className="border-2 border-violet-400 text-violet-400 hover:bg-violet-400 hover:text-white px-8 py-4 text-lg backdrop-blur-sm bg-white/10 transition-all duration-300"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 Get in Touch
@@ -116,20 +66,24 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {hero.stats.map((stat, index) => (
-              <Card key={index} className="bg-card/50 backdrop-blur-sm border-border hover:border-[#0070C0]/50 transition-colors duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-[#0070C0] mb-2">
-                    {counters[index] || stat.value}
-                  </div>
-                  <p className="text-sm text-muted-foreground font-medium">
-                    {stat.label}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Professional Headshot */}
+          <div className="flex-shrink-0">
+            <div className="relative">
+              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl backdrop-blur-sm">
+                <img 
+                  src={hero.headshot} 
+                  alt="Shubh Pandey - Professional Headshot"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    const placeholder = e.target.parentElement;
+                    placeholder.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center"><span class="text-white text-6xl font-bold">SP</span></div>';
+                  }}
+                />
+              </div>
+              {/* Gradient ring effect */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full opacity-20 blur-xl"></div>
+            </div>
           </div>
         </div>
       </div>

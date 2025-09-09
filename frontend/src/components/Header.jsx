@@ -50,7 +50,7 @@ const Header = ({ isDark, toggleTheme }) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full bg-[#0070C0] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 flex items-center justify-center">
               <span className="text-white font-bold text-lg">SP</span>
             </div>
             <span className="font-bold text-xl">Shubh Pandey</span>
@@ -62,8 +62,10 @@ const Header = ({ isDark, toggleTheme }) => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-[#0070C0] ${
-                  activeSection === item.id ? 'text-[#0070C0]' : 'text-muted-foreground'
+                className={`text-sm font-medium transition-colors hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 ${
+                  activeSection === item.id 
+                    ? 'text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600' 
+                    : 'text-muted-foreground'
                 }`}
               >
                 {item.label}
@@ -102,8 +104,10 @@ const Header = ({ isDark, toggleTheme }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-sm font-medium transition-colors hover:text-[#0070C0] ${
-                    activeSection === item.id ? 'text-[#0070C0]' : 'text-muted-foreground'
+                  className={`text-left text-sm font-medium transition-colors hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 ${
+                    activeSection === item.id 
+                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600' 
+                      : 'text-muted-foreground'
                   }`}
                 >
                   {item.label}
