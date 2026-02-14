@@ -55,7 +55,7 @@ const Terminal = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full max-w-4xl mx-auto mt-20"
+            className="w-full max-w-4xl mx-auto mt-12 px-4"
         >
             <div className="bg-[#1e1e1e] rounded-lg overflow-hidden shadow-2xl border border-white/10">
                 {/* Terminal Header */}
