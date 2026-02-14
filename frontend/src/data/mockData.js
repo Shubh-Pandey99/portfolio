@@ -121,10 +121,10 @@ export const portfolioData = {
 
   projects: [
     {
-      title: "TeacherPro: Attendance Manager",
-      description: "A robust SaaS platform for educational institutions to automate attendance tracking, student management, and performance analytics.",
-      tags: ["React", "FastAPI", "PostgreSQL", "Docker"],
-      githubUrl: "https://github.com/Shubh-Pandey99/teacher-pro",
+      title: "TeacherPro Attendance App",
+      description: "A professional SaaS-ready dashboard for teachers to manage student attendance, track performance, and streamline classroom operations.",
+      tags: ["React", "Firebase", "Node.js", "Tailwind"],
+      githubUrl: "https://github.com/Shubh-Pandey99/music-teacher-app",
       deployUrl: "https://dynamic-filament.vercel.app/login",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },

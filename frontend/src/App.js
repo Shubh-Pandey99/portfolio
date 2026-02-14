@@ -4,7 +4,6 @@ import { ThemeProvider } from './components/ThemeProvider';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
-import AnatomySection from './components/AnatomySection';
 import SkillsSection from './components/SkillsSection';
 import ExperienceSection from './components/ExperienceSection';
 import EducationSection from './components/EducationSection';
@@ -31,10 +30,6 @@ const PortfolioContent = () => {
 
                 <Reveal delay={0.2}>
                     <AboutSection />
-                </Reveal>
-
-                <Reveal delay={0.2}>
-                    <AnatomySection />
                 </Reveal>
 
                 <Reveal delay={0.2}>
