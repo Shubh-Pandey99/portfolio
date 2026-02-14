@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Laptop, Terminal } from 'lucide-react';
-import { useTheme } from '../context/ThemeProvider';
+import { useTheme } from './ThemeProvider';
 import SystemStatus from './SystemStatus';
 
 const Header = () => {
