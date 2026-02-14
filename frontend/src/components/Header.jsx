@@ -57,14 +57,14 @@ const Header = ({ isDark, toggleTheme }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-colors hover:text-orange-500 ${activeSection === item.id
-                    ? 'text-orange-500'
-                    : 'text-muted-foreground'
+                  ? 'text-orange-500'
+                  : 'text-muted-foreground'
                   }`}
               >
                 {item.label}
@@ -87,7 +87,7 @@ const Header = ({ isDark, toggleTheme }) => {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
+              className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -96,15 +96,15 @@ const Header = ({ isDark, toggleTheme }) => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100 mt-4 pb-4 border-t border-border pt-4' : 'max-h-0 opacity-0'}`}>
+        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100 mt-4 pb-4 border-t border-border pt-4' : 'max-h-0 opacity-0'}`}>
           <div className="flex flex-col space-y-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-left text-sm font-medium transition-colors hover:text-orange-500 py-2 ${activeSection === item.id
-                    ? 'text-orange-500'
-                    : 'text-muted-foreground'
+                  ? 'text-orange-500'
+                  : 'text-muted-foreground'
                   }`}
               >
                 {item.label}
