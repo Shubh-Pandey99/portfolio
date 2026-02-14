@@ -6,7 +6,7 @@ import { portfolioData } from '../data/mockData';
 const Terminal = () => {
     const [input, setInput] = useState('');
     const [history, setHistory] = useState([
-        { type: 'output', content: 'Welcome to ShubhOS v1.1.0 (LTS)' },
+        { type: 'output', content: 'Welcome to ShubhOS v1.2.0 (Testing Everything)' },
         { type: 'output', content: 'Type "help" to see available commands.' },
     ]);
     const terminalRef = useRef(null);

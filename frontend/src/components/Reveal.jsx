@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Reveal = ({ children, width = "100%", delay = 0.2 }) => {
     return (
-        <div style={{ position: "relative", width, overflow: "visible" }}>
+        <div style={{ position: "relative", width, overflow: "hidden" }}>
             <motion.div
                 variants={{
                     hidden: { opacity: 0, y: 75 },
