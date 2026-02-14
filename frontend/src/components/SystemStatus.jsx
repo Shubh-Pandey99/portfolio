@@ -15,7 +15,7 @@ const SystemStatus = () => {
     }, []);
 
     return (
-        <div className="hidden lg:flex items-center space-x-6 px-4 py-1.5 rounded-full bg-muted/50 border border-border/50 text-[10px] font-mono whitespace-nowrap">
+        <div className="flex items-center space-x-6 px-4 py-1.5 rounded-full bg-muted/50 border border-border/50 text-[10px] font-mono whitespace-nowrap">
             <div className="flex items-center space-x-2">
                 <div className="relative">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>

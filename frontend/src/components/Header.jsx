@@ -47,28 +47,28 @@ const Header = ({ isDark, toggleTheme }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
+      <nav className="container mx-auto px-4 py-3 overflow-x-hidden">
+        <div className="flex items-center justify-between gap-4">
+          {/* Logo — always visible */}
+          <div className="flex items-center space-x-2 flex-shrink-0">
             <div className="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
               <span className="text-white font-bold text-lg">SP</span>
             </div>
-            <span className="font-bold text-xl">Shubh Pandey</span>
+            <span className="font-bold text-xl whitespace-nowrap">Shubh Pandey</span>
           </div>
 
-          {/* Center Section: System Status + Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
+          {/* System Status — visible only on xl (≥1280px) */}
+          <div className="hidden xl:block flex-shrink-0">
             <SystemStatus />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop Navigation — visible only on lg (≥1024px) */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5 flex-shrink-0">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-orange-500 ${activeSection === item.id
+                className={`text-sm font-medium transition-colors hover:text-orange-500 whitespace-nowrap ${activeSection === item.id
                   ? 'text-orange-500'
                   : 'text-muted-foreground'
                   }`}
@@ -78,8 +78,8 @@ const Header = ({ isDark, toggleTheme }) => {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          {/* Theme Toggle & Mobile Menu Button */}
+          <div className="flex items-center gap-2 flex-shrink-0">
             <Button
               variant="ghost"
               size="icon"
@@ -89,11 +89,11 @@ const Header = ({ isDark, toggleTheme }) => {
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button — visible below lg */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -101,23 +101,25 @@ const Header = ({ isDark, toggleTheme }) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100 mt-4 pb-4 border-t border-border pt-4' : 'max-h-0 opacity-0'}`}>
-          <div className="flex flex-col space-y-3">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`text-left text-sm font-medium transition-colors hover:text-orange-500 py-2 ${activeSection === item.id
-                  ? 'text-orange-500'
-                  : 'text-muted-foreground'
-                  }`}
-              >
-                {item.label}
-              </button>
-            ))}
+        {/* Mobile Navigation Drawer — visible below lg */}
+        {isMenuOpen && (
+          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-in slide-in-from-top-2 duration-200">
+            <div className="flex flex-col space-y-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-left text-sm font-medium transition-colors hover:text-orange-500 py-2 ${activeSection === item.id
+                    ? 'text-orange-500'
+                    : 'text-muted-foreground'
+                    }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </nav>
     </header>
   );
