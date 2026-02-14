@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Moon, Sun, Menu, X } from 'lucide-react';
+import SystemStatus from './SystemStatus';
 
 const Header = ({ isDark, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,6 +56,9 @@ const Header = ({ isDark, toggleTheme }) => {
             </div>
             <span className="font-bold text-xl">Shubh Pandey</span>
           </div>
+
+          {/* System Status - Desk Only */}
+          <SystemStatus />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
