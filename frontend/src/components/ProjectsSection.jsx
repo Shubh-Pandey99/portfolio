@@ -1,5 +1,5 @@
 import React from 'react';
-import { FolderOpen, ExternalLink, Github, Zap, Target, Layout, Music } from 'lucide-react';
+import { FolderOpen, ExternalLink, Github, Zap, Target, Layout, Users } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
 import { motion } from 'framer-motion';
 
@@ -9,7 +9,7 @@ const ProjectsSection = () => {
   const getProjectIcon = (title) => {
     if (title.includes('Email')) return <Zap className="w-8 h-8" />;
     if (title.includes('Mission')) return <Target className="w-8 h-8" />;
-    if (title.includes('Harmony') || title.includes('Music')) return <Music className="w-8 h-8" />;
+    if (title.includes('TeacherPro') || title.includes('Attendance')) return <Users className="w-8 h-8" />;
     return <FolderOpen className="w-8 h-8" />;
   };
 
