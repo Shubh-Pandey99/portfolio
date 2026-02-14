@@ -6,7 +6,7 @@ import { portfolioData } from '../data/mockData';
 const Terminal = () => {
     const [input, setInput] = useState('');
     const [history, setHistory] = useState([
-        { type: 'output', content: 'Welcome to ShubhOS v2.0.0 (Proprietary DevOps Environment)' },
+        { type: 'output', content: 'Welcome to ShubhOS v2.1.0 (Proprietary DevOps Environment)' },
         { type: 'output', content: 'System: Initialized. Security Status: STRICT.' },
         { type: 'output', content: 'Type "help" to see available commands.' },
     ]);
@@ -18,15 +18,19 @@ const Terminal = () => {
         whoami: () => portfolioData.about.summary,
         ls: () => 'about/  experience/  skills/  projects/  blogs/  certifications/',
         skills: () => {
-            const categories = Object.keys(portfolioData.skills);
-            return categories.map(cat => {
-                const skillList = portfolioData.skills[cat].map(s => s.name).join(', ');
-                return `${cat}: ${skillList}`;
-            }).join('\n');
+            try {
+                const categories = Object.keys(portfolioData.skills);
+                return categories.map(cat => {
+                    const skillList = portfolioData.skills[cat].map(s => typeof s === 'string' ? s : s.name).join(', ');
+                    return `${cat}:\n  ${skillList}`;
+                }).join('\n\n');
+            } catch (e) {
+                return 'Error parsing skills database. Use contact command for resume.';
+            }
         },
         experience: () => {
             return portfolioData.experience.map(exp =>
-                `[${exp.period}] ${exp.title} @ ${exp.company}\n- ${exp.responsibilities[0].substring(0, 100)}...`
+                `[${exp.period}] ${exp.title} @ ${exp.company}\n- ${exp.responsibilities[0]}`
             ).join('\n\n');
         },
         projects: () => {
@@ -45,18 +49,23 @@ const Terminal = () => {
 
     const executeCommand = (cmdText) => {
         const cmd = cmdText.trim().toLowerCase();
-        const newHistory = [...history, { type: 'input', content: cmdText }];
+        // Add user input to history
+        setHistory(prev => [...prev, { type: 'input', content: cmdText }]);
 
-        if (commands[cmd]) {
-            const result = commands[cmd]();
-            if (result !== null) {
-                newHistory.push({ type: 'output', content: result });
+        // Small delay to simulate system processing
+        setTimeout(() => {
+            let output = null;
+            if (commands[cmd]) {
+                output = commands[cmd]();
+            } else if (cmd !== '') {
+                output = `sh: command not found: ${cmd}. Type "help" for a list of commands.`;
             }
-        } else if (cmd !== '') {
-            newHistory.push({ type: 'output', content: `sh: command not found: ${cmd}. Type "help" for a list of commands.` });
-        }
 
-        setHistory(newHistory);
+            if (output !== null) {
+                setHistory(prev => [...prev, { type: 'output', content: output }]);
+            }
+        }, 50);
+
         setInput('');
     };
 
@@ -88,22 +97,18 @@ const Terminal = () => {
                             <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_10px_rgba(234,179,8,0.3)]"></div>
                             <div className="w-3 h-3 rounded-full bg-green-500/80 shadow-[0_0_10px_rgba(34,197,94,0.3)]"></div>
                         </div>
-                        <span className="text-[10px] text-gray-400 font-mono tracking-widest uppercase ml-4 hidden sm:inline">shubh@devos-$ bash 5.0</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                        <TerminalIcon className="w-3.5 h-3.5 text-orange-500/50" />
-                        <span className="text-[10px] text-gray-500 font-mono">UTF-8</span>
+                        <span className="text-[10px] text-gray-400 font-mono tracking-widest uppercase ml-4 hidden sm:inline">shubh@devos-$ bash 5.1</span>
                     </div>
                 </div>
 
                 {/* Terminal Body */}
                 <div
                     ref={terminalRef}
-                    className="p-6 h-72 md:h-[400px] overflow-y-auto overflow-x-hidden font-mono text-sm space-y-3 text-orange-500/90 bg-[#0c0c0d] scrollbar-thin scrollbar-thumb-white/10"
+                    className="p-6 h-72 md:h-[450px] overflow-y-auto overflow-x-hidden font-mono text-[11px] md:text-sm space-y-4 text-orange-500/90 bg-[#0c0c0d] scrollbar-thin scrollbar-thumb-white/10"
                     onClick={() => inputRef.current?.focus()}
                 >
                     {history.map((item, i) => (
-                        <div key={i} className="animate-in fade-in duration-300">
+                        <div key={i} className="animate-in fade-in slide-in-from-left-2 duration-300">
                             {item.type === 'input' ? (
                                 <div className="flex items-start">
                                     <span className="text-blue-400 mr-2 font-black">➜</span>
@@ -111,7 +116,7 @@ const Terminal = () => {
                                     <span className="text-white font-bold">{item.content}</span>
                                 </div>
                             ) : (
-                                <div className="text-gray-400 leading-relaxed whitespace-pre-wrap pl-6 border-l border-white/5 ml-1">
+                                <div className="text-gray-400 leading-relaxed whitespace-pre-wrap pl-6 border-l border-white/5 ml-1 opacity-90">
                                     {item.content}
                                 </div>
                             )}
@@ -137,12 +142,12 @@ const Terminal = () => {
             </div>
 
             {/* Clickable Hints */}
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <div className="mt-6 flex flex-wrap justify-center gap-2 md:gap-3">
                 {['help', 'whoami', 'skills', 'experience', 'projects', 'blogs', 'contact'].map((cmd) => (
                     <button
                         key={cmd}
                         onClick={() => executeCommand(cmd)}
-                        className="px-4 py-2 bg-background/40 backdrop-blur-md rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all shadow-sm active:scale-95"
+                        className="px-3 md:px-5 py-2 md:py-2.5 bg-background/40 backdrop-blur-md rounded-xl border border-white/5 text-[9px] md:text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all shadow-sm active:scale-95"
                     >
                         {cmd}
                     </button>
