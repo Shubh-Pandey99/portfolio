@@ -24,11 +24,11 @@ const ProjectsSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-violet-600/10 to-indigo-600/10 mb-4">
-              <FolderOpen className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-500/10 mb-4">
+              <FolderOpen className="w-8 h-8 text-orange-500" />
             </div>
             <h2 className="text-4xl font-bold mb-4">Projects</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Innovation-driven projects that improve operational efficiency and reliability
             </p>
@@ -39,17 +39,17 @@ const ProjectsSection = () => {
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="bg-card/80 backdrop-blur-sm border border-border hover:border-violet-500/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group shadow-md"
+                className="bg-card/80 backdrop-blur-sm border border-border hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group shadow-md"
               >
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-violet-100 to-indigo-100 dark:from-violet-900/30 dark:to-indigo-900/30 flex items-center justify-center border border-violet-200/50 dark:border-violet-800/50">
-                      <div className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
+                    <div className="w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center border border-orange-200/50 dark:border-orange-800/50">
+                      <div className="text-orange-500">
                         {getProjectIcon(project.title)}
                       </div>
                     </div>
                   </div>
-                  <CardTitle className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 leading-tight group-hover:from-violet-700 group-hover:to-indigo-700 transition-all duration-300">
+                  <CardTitle className="text-lg font-bold text-orange-500 leading-tight group-hover:text-orange-600 transition-all duration-300">
                     {project.title}
                   </CardTitle>
                 </CardHeader>
@@ -64,7 +64,7 @@ const ProjectsSection = () => {
                       href={project.linkedinUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border border-violet-300 dark:border-violet-700 rounded-md text-violet-600 dark:text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
+                      className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border border-orange-300 dark:border-orange-700 rounded-md text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       View on LinkedIn
@@ -77,9 +77,9 @@ const ProjectsSection = () => {
 
           {/* Additional Project Info */}
           <div className="mt-12 text-center">
-            <Card className="bg-gradient-to-r from-violet-50/50 to-indigo-50/50 dark:from-violet-950/30 dark:to-indigo-950/30 border-violet-200/50 dark:border-violet-800/50 shadow-lg">
+            <Card className="bg-orange-50/50 dark:bg-orange-950/20 border-orange-200/50 dark:border-orange-800/50 shadow-lg">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
+                <h3 className="text-xl font-semibold mb-4 text-orange-500">
                   Impact & Innovation
                 </h3>
                 <p className="text-muted-foreground max-w-3xl mx-auto">

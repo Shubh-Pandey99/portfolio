@@ -12,6 +12,7 @@ import ProjectsSection from './components/ProjectsSection';
 import BlogsSection from './components/BlogsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import FloatingControls from './components/FloatingControls';
 
 const PortfolioContent = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -60,6 +61,7 @@ const PortfolioContent = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <FloatingControls />
       <Header isDark={isDark} toggleTheme={toggleTheme} />
       <main>
         <HeroSection />
