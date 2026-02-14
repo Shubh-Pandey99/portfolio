@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider, useTheme } from './components/ThemeProvider';
 import Header from './components/Header';
@@ -15,6 +16,10 @@ import Footer from './components/Footer';
 import FloatingControls from './components/FloatingControls';
 import Reveal from './components/Reveal';
 import CommandMenu from './components/CommandMenu';
+
+// Pages
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 const PortfolioContent = () => {
   return (
@@ -69,7 +74,14 @@ const PortfolioContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <PortfolioContent />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PortfolioContent />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
