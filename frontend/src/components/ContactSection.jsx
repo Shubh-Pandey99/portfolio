@@ -22,13 +22,38 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState({ loading: false, success: false, error: null });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, message } = formData;
-    const subject = `Portfolio Contact from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-    const mailtoUrl = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
+    setStatus({ loading: true, success: false, error: null });
+
+    try {
+      // Try to send to backend API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({ loading: false, success: true, error: null });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message via API');
+      }
+    } catch (error) {
+      console.error('API Error:', error);
+      // Fallback to mailto if API fails
+      const { name, email, message } = formData;
+      const subject = `Portfolio Contact from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+      const mailtoUrl = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+      setStatus({ loading: false, success: false, error: 'API unreachable, opened email client instead.' });
+    }
   };
 
   const handleEmailMe = () => {
@@ -60,8 +85,8 @@ const ContactSection = () => {
             <div className="space-y-6">
               <div>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  I'm always interested in discussing new opportunities, 
-                  challenging projects, and innovative solutions in DevOps and cloud infrastructure. 
+                  I'm always interested in discussing new opportunities,
+                  challenging projects, and innovative solutions in DevOps and cloud infrastructure.
                   Feel free to reach out!
                 </p>
               </div>
@@ -173,12 +198,23 @@ const ContactSection = () => {
                       className="border-border focus:border-orange-500 focus:ring-orange-500 resize-none"
                     />
                   </div>
+                  {status.success && (
+                    <div className="p-3 rounded bg-green-500/10 border border-green-500/50 text-green-500 text-sm text-center">
+                      Message sent successfully!
+                    </div>
+                  )}
+                  {status.error && (
+                    <div className="p-3 rounded bg-red-500/10 border border-red-500/50 text-red-500 text-sm text-center">
+                      {status.error}
+                    </div>
+                  )}
                   <Button
                     type="submit"
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 shadow-lg hover:shadow-xl transition-all duration-300"
+                    disabled={status.loading}
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
                   >
-                    <Send className="mr-2 h-5 w-5" />
-                    Send Message
+                    <Send className={`mr-2 h-5 w-5 ${status.loading ? 'animate-pulse' : ''}`} />
+                    {status.loading ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>

@@ -37,8 +37,8 @@ const ProjectsSection = () => {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="bg-card/80 backdrop-blur-sm border border-border hover:border-violet-500/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group shadow-md"
               >
                 <CardHeader>
@@ -60,15 +60,15 @@ const ProjectsSection = () => {
 
                   {/* Action Button */}
                   <div className="pt-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleViewOnLinkedIn(project.linkedinUrl)}
-                      className="w-full border-violet-300 dark:border-violet-700 text-violet-600 dark:text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:text-white hover:border-transparent transition-all duration-300"
+                    <a
+                      href={project.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border border-violet-300 dark:border-violet-700 rounded-md text-violet-600 dark:text-violet-400 hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       View on LinkedIn
-                    </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -83,9 +83,9 @@ const ProjectsSection = () => {
                   Impact & Innovation
                 </h3>
                 <p className="text-muted-foreground max-w-3xl mx-auto">
-                  These projects showcase a commitment to automation, process improvement, 
-                  and knowledge sharing. Each initiative has delivered measurable business 
-                  value through reduced operational overhead, improved team efficiency, 
+                  These projects showcase a commitment to automation, process improvement,
+                  and knowledge sharing. Each initiative has delivered measurable business
+                  value through reduced operational overhead, improved team efficiency,
                   and enhanced system reliability.
                 </p>
               </CardContent>

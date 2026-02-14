@@ -62,11 +62,10 @@ const Header = ({ isDark, toggleTheme }) => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-orange-500 ${
-                  activeSection === item.id 
-                    ? 'text-orange-500' 
+                className={`text-sm font-medium transition-colors hover:text-orange-500 ${activeSection === item.id
+                    ? 'text-orange-500'
                     : 'text-muted-foreground'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
@@ -97,25 +96,22 @@ const Header = ({ isDark, toggleTheme }) => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-sm font-medium transition-colors hover:text-orange-500 ${
-                    activeSection === item.id 
-                      ? 'text-orange-500' 
-                      : 'text-muted-foreground'
+        <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100 mt-4 pb-4 border-t border-border pt-4' : 'max-h-0 opacity-0'}`}>
+          <div className="flex flex-col space-y-3">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`text-left text-sm font-medium transition-colors hover:text-orange-500 py-2 ${activeSection === item.id
+                    ? 'text-orange-500'
+                    : 'text-muted-foreground'
                   }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );
