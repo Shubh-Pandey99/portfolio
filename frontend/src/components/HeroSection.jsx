@@ -37,7 +37,7 @@ const HeroSection = () => {
             <div className="space-y-6">
               <div className="text-lg text-orange-500 font-medium">Hello,</div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                <span className="text-white">I'm {hero.name.split(' ')[1]}</span>
+                <span className="text-white">I am {hero.name}</span>
                 <div className="w-16 h-1 bg-orange-500 mt-4 mb-6 mx-auto lg:mx-0"></div>
                 <span className="block text-white text-4xl md:text-5xl lg:text-6xl mt-2">
                   {hero.title}
@@ -81,7 +81,7 @@ const HeroSection = () => {
                   <img
                     src={hero.headshot}
                     alt="Shubh Pandey - Professional Headshot"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                     onError={(e) => {
                       e.target.style.display = 'none';
                       const placeholder = e.target.parentElement;

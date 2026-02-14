@@ -57,7 +57,7 @@ const Terminal = () => {
             viewport={{ once: true }}
             className="w-full max-w-4xl mx-auto mt-12 px-4"
         >
-            <div className="bg-[#1e1e1e] rounded-lg overflow-hidden shadow-2xl border border-white/10">
+            <div className="bg-[#1e1e1e] rounded-lg overflow-hidden shadow-2xl border border-white/10 relative">
                 {/* Terminal Header */}
                 <div className="bg-[#323233] px-4 py-2 flex items-center justify-between">
                     <div className="flex items-center space-x-2">
@@ -110,6 +110,23 @@ const Terminal = () => {
                         />
                     </div>
                 </div>
+            </div>
+            
+            {/* Command Hints */}
+            <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs md:text-sm text-muted-foreground font-mono">
+                <span>Try running:</span>
+                {['help', 'whoami', 'skills', 'experience', 'contact'].map((cmd) => (
+                    <button 
+                        key={cmd}
+                        onClick={() => {
+                            setInput(cmd);
+                            inputRef.current?.focus();
+                        }}
+                        className="px-2 py-1 bg-muted/50 rounded border border-border/50 hover:bg-orange-500/10 hover:text-orange-500 hover:border-orange-500/50 transition-colors"
+                    >
+                        {cmd}
+                    </button>
+                ))}
             </div>
         </motion.div>
     );
