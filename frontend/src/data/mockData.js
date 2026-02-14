@@ -15,29 +15,29 @@ export const portfolioData = {
 
   skills: {
     "Cloud Platforms": [
-      { name: "AWS", level: 95 },
-      { name: "GCP", level: 85 },
-      { name: "Azure", level: 80 }
+      { name: "AWS", proficiency: "Expert", tags: ["EKS", "Lambda", "Direct Connect"] },
+      { name: "GCP", proficiency: "Advanced", tags: ["GKE", "Cloud Run"] },
+      { name: "Azure", proficiency: "Proficient", tags: ["AKS", "Azure AD"] }
     ],
     "Infrastructure & Automation": [
-      { name: "Terraform", level: 90 },
-      { name: "Ansible", level: 85 },
-      { name: "Docker", level: 90 },
-      { name: "Kubernetes", level: 85 },
-      { name: "GitLab CI/CD", level: 90 },
-      { name: "Jenkins", level: 80 }
+      { name: "Terraform", proficiency: "Expert", tags: ["IaC", "State Mgmt"] },
+      { name: "Ansible", proficiency: "Advanced", tags: ["Config Mgmt"] },
+      { name: "Docker", proficiency: "Expert", tags: ["Containerization"] },
+      { name: "Kubernetes", proficiency: "Expert", tags: ["Orchestration"] },
+      { name: "GitLab CI/CD", proficiency: "Expert", tags: ["Automation"] },
+      { name: "Jenkins", proficiency: "Advanced", tags: ["Pipelines"] }
     ],
     "Programming & Scripting": [
-      { name: "Python", level: 90 },
-      { name: "Bash", level: 95 },
-      { name: "TypeScript", level: 80 },
-      { name: "FastAPI", level: 85 }
+      { name: "Python", proficiency: "Expert", tags: ["Scripting", "FastAPI"] },
+      { name: "Bash", proficiency: "Expert", tags: ["Automation"] },
+      { name: "TypeScript", proficiency: "Advanced", tags: ["Frontend", "Node.js"] },
+      { name: "Java", proficiency: "Proficient", tags: ["Backend"] }
     ],
     "Monitoring & Observability": [
-      { name: "CloudWatch", level: 95 },
-      { name: "Datadog", level: 80 },
-      { name: "Prometheus", level: 85 },
-      { name: "Grafana", level: 90 }
+      { name: "CloudWatch", proficiency: "Expert", tags: ["Log Insight"] },
+      { name: "Datadog", proficiency: "Advanced", tags: ["APM"] },
+      { name: "Prometheus", proficiency: "Expert", tags: ["Metrics"] },
+      { name: "Grafana", proficiency: "Expert", tags: ["Dashboards"] }
     ]
   },
 
@@ -121,24 +121,25 @@ export const portfolioData = {
 
   projects: [
     {
+      title: "Harmony: Music Learning Platform",
+      description: "A comprehensive platform for music teachers and students to manage lessons, tracks, and progress autonomously.",
+      tags: ["React", "Firebase", "Node.js", "Tailwind"],
+      githubUrl: "https://github.com/Shubh-Pandey99/music-teacher-app",
+      deployUrl: "https://dynamic-filament.vercel.app/login",
+      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
+    },
+    {
       title: "Email Remediation Automation",
       description: "Automated remediation system enabling L1 support to resolve critical incidents autonomously. (Patent Initiative)",
       tags: ["Python", "AWS Lambda", "Step Functions"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      githubUrl: "https://github.com/Shubh-Pandey99",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
     {
       title: "Mission 70 Automation",
       description: "Empowered L1 support teams with self-service automation, increasing autonomy by 70%.",
       tags: ["Ansible", "Terraform", "Shell"],
-      image: "https://images.unsplash.com/photo-1518433278985-2882333d1b02?w=800&q=80",
-      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
-    },
-    {
-      title: "Onboarding Knowledge Hub",
-      description: "Centralized knowledge base reducing new joiner onboarding time by 40%.",
-      tags: ["Confluence", "Documentation", "GitLab"],
-      image: "https://images.unsplash.com/photo-1454165833772-d996d49513d7?w=800&q=80",
+      githubUrl: "https://github.com/Shubh-Pandey99",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     }
   ],
