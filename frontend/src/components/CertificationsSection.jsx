@@ -31,14 +31,14 @@ const CertificationsSection = () => {
           {/* Certifications Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="bg-card/80 backdrop-blur-sm border border-border hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group overflow-hidden shadow-md"
               >
                 <CardHeader className="text-center pb-4">
                   <div className="mx-auto mb-4 w-28 h-28 rounded-lg bg-white p-3 shadow-lg group-hover:shadow-xl transition-shadow duration-300 border border-orange-200/30 flex items-center justify-center">
-                    <img 
-                      src={cert.badge} 
+                    <img
+                      src={cert.badge}
                       alt={`${cert.name} official badge`}
                       className="w-full h-full object-contain"
                       onError={(e) => {
@@ -60,16 +60,16 @@ const CertificationsSection = () => {
                       {cert.validity}
                     </div>
                   </div>
-                  
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleVerifyCertificate(cert.verifyUrl)}
-                    className="w-full border-orange-300 dark:border-orange-700 text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white hover:border-transparent transition-all duration-300"
+
+                  <a
+                    href={cert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border border-orange-300 dark:border-orange-700 rounded-md text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Verify Certificate
-                  </Button>
+                  </a>
                 </CardContent>
               </Card>
             ))}
@@ -86,8 +86,8 @@ const CertificationsSection = () => {
                   </h3>
                 </div>
                 <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-                  Continuously advancing skills through industry-leading certification programs 
-                  from AWS, Google Cloud, and Microsoft Azure. These certifications validate 
+                  Continuously advancing skills through industry-leading certification programs
+                  from AWS, Google Cloud, and Microsoft Azure. These certifications validate
                   hands-on experience in cloud architecture, DevOps practices, and system reliability.
                 </p>
                 <div className="flex flex-wrap justify-center gap-2">
