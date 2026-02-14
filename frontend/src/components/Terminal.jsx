@@ -80,7 +80,7 @@ const Terminal = () => {
                 {/* Terminal Body */}
                 <div
                     ref={terminalRef}
-                    className="p-4 h-80 overflow-y-auto font-mono text-sm space-y-2 text-green-400 bg-black/90 selection:bg-green-500/30"
+                    className="p-4 h-64 md:h-80 overflow-y-auto overflow-x-hidden font-mono text-xs sm:text-sm space-y-2 text-green-400 bg-black/90 selection:bg-green-500/30"
                     onClick={() => inputRef.current?.focus()}
                 >
                     {history.map((item, i) => (

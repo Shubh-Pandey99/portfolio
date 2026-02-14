@@ -20,7 +20,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-16 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-24 pb-16 relative overflow-hidden">
       {/* Dark Background with Orange Accents */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
@@ -38,7 +38,7 @@ const HeroSection = () => {
               <div className="text-lg text-orange-500 font-medium">Hello,</div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                 <span className="text-white">I'm {hero.name.split(' ')[1]}</span>
-                <div className="w-16 h-1 bg-orange-500 mt-4 mb-6"></div>
+                <div className="w-16 h-1 bg-orange-500 mt-4 mb-6 mx-auto lg:mx-0"></div>
                 <span className="block text-white text-4xl md:text-5xl lg:text-6xl mt-2">
                   {hero.title}
                 </span>
@@ -76,7 +76,7 @@ const HeroSection = () => {
           <div className="flex-shrink-0">
             <div className="relative">
               {/* Orange circular background */}
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-orange-500 to-red-500 p-2">
+              <div className="w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-orange-500 to-red-500 p-2">
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
                   <img
                     src={hero.headshot}
