@@ -30,10 +30,10 @@ const HeroSection = () => {
       <div className="absolute bottom-40 left-20 w-24 h-24 bg-red-500/20 rounded-full blur-lg"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto gap-12 lg:gap-16">
 
           {/* Content */}
-          <div className="flex-1 text-center lg:text-left space-y-8">
+          <div className="flex-1 text-center lg:text-left space-y-8 flex flex-col justify-center">
             <div className="space-y-6">
               <div className="text-lg text-orange-500 font-medium">Hello,</div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
