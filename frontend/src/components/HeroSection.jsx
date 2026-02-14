@@ -24,14 +24,14 @@ const HeroSection = () => {
       {/* Dark Background with Orange Accents */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-      
+
       {/* Orange geometric shapes */}
       <div className="absolute top-20 right-20 w-32 h-32 bg-orange-500/20 rounded-full blur-xl"></div>
       <div className="absolute bottom-40 left-20 w-24 h-24 bg-red-500/20 rounded-full blur-lg"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto gap-12">
-          
+
           {/* Content */}
           <div className="flex-1 text-center lg:text-left space-y-8">
             <div className="space-y-6">
@@ -43,7 +43,7 @@ const HeroSection = () => {
                   {hero.title}
                 </span>
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-gray-300 font-light max-w-lg">
                 {hero.subheading}
               </p>
@@ -51,19 +51,19 @@ const HeroSection = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                onClick={handleDownloadResume}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+              <a
+                href={hero.resumeUrl}
+                download="Shubh_Resume.pdf"
+                className="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Download className="mr-2 h-5 w-5" />
                 My resume
-              </Button>
-              
+              </a>
+
               <Button
                 variant="outline"
                 size="lg"
-                onClick={handleGetInTouch}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg backdrop-blur-sm bg-transparent transition-all duration-300"
               >
                 <Mail className="mr-2 h-5 w-5" />
@@ -78,8 +78,8 @@ const HeroSection = () => {
               {/* Orange circular background */}
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-orange-500 to-red-500 p-2">
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
-                  <img 
-                    src={hero.headshot} 
+                  <img
+                    src={hero.headshot}
                     alt="Shubh Pandey - Professional Headshot"
                     className="w-full h-full object-cover"
                     onError={(e) => {
