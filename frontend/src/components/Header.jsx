@@ -85,7 +85,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${activeSection === item.id
+                className={`px-3 xl:px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${activeSection === item.id
                   ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20'
                   : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                   }`}
@@ -97,8 +97,8 @@ const Header = () => {
 
           {/* Controls */}
           <div className="flex items-center gap-2 md:gap-3">
-            {/* Hidden on mobile/tablet to prevent clutter */}
-            <SystemStatus className="hidden xl:flex" />
+            {/* Hidden on standard laptops/mobile/tablet to prevent clutter. Show only on ultra-wide screens. */}
+            <SystemStatus className="hidden 2xl:flex" />
 
             <button
               onClick={toggleTheme}

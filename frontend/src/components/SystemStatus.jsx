@@ -13,8 +13,13 @@ const SystemStatus = ({ className = "" }) => {
         return () => clearInterval(interval);
     }, []);
 
+    // Ensure we don't have conflicting flex/hidden classes
+    const containerClasses = className.includes('flex') || className.includes('hidden')
+        ? className
+        : `flex ${className}`;
+
     return (
-        <div className={`flex items-center space-x-4 md:space-x-6 px-4 py-1.5 rounded-full bg-muted/50 border border-border/50 text-[10px] font-mono whitespace-nowrap ${className}`}>
+        <div className={`${containerClasses} items-center space-x-4 md:space-x-6 px-4 py-1.5 rounded-full bg-muted/50 border border-border/50 text-[10px] font-mono whitespace-nowrap`}>
             <div className="flex items-center space-x-2">
                 <div className="relative">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -30,13 +35,13 @@ const SystemStatus = ({ className = "" }) => {
                 <span className="text-foreground">{uptime}</span>
             </div>
 
-            <div className="hidden md:flex items-center space-x-2 border-l border-border pl-4">
+            <div className="hidden xl:flex items-center space-x-2 border-l border-border pl-4">
                 <Activity className="w-3 h-3 text-blue-500" />
                 <span className="text-muted-foreground uppercase tracking-widest">Latency:</span>
                 <span className="text-foreground">{ping}ms</span>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-2 border-l border-border pl-4">
+            <div className="hidden 2xl:flex items-center space-x-2 border-l border-border pl-4">
                 <ShieldCheck className="w-3 h-3 text-orange-500" />
                 <span className="text-muted-foreground uppercase tracking-widest">Sec:</span>
                 <span className="text-foreground">STRICT</span>
