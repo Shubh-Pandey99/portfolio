@@ -63,7 +63,7 @@ const Header = ({ isDark, toggleTheme }) => {
           </div>
 
           {/* Desktop Navigation — visible only on lg (≥1024px) */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-5 flex-shrink-0 overflow-x-auto no-scrollbar max-w-[60vw] xl:max-w-none justify-center xl:justify-start">
+          <div className="hidden lg:flex flex-1 min-w-0 items-center justify-center xl:justify-start gap-4 xl:gap-5 overflow-x-auto no-scrollbar px-2">
             {navItems.map((item) => (
               <button
                 key={item.id}

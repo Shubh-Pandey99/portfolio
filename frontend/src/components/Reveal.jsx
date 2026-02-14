@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Reveal = ({ children, width = "fit-content", delay = 0.2 }) => {
+const Reveal = ({ children, width = "100%", delay = 0.2 }) => {
     return (
-        <div style={{ position: "relative", width, overflow: "hidden" }}>
+        <div style={{ position: "relative", width, overflow: "visible" }}>
             <motion.div
                 variants={{
                     hidden: { opacity: 0, y: 75 },
