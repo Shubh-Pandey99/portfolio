@@ -1,96 +1,100 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Badge } from './ui/badge';
-import { Code, Cloud, Monitor, Users, Server, Terminal } from 'lucide-react';
+import React, { useState } from 'react';
+import { Code, Cloud, Monitor, Server, Terminal, CheckCircle2 } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const SkillsSection = () => {
   const { skills } = portfolioData;
+  const [activeTab, setActiveTab] = useState(Object.keys(skills)[0]);
 
   const getIcon = (category) => {
     switch (category) {
-      case 'Cloud Platforms':
-        return <Cloud className="w-6 h-6" />;
-      case 'Infrastructure & Automation':
-        return <Server className="w-6 h-6" />;
-      case 'Programming & Scripting':
-        return <Code className="w-6 h-6" />;
-      case 'Monitoring & Incident Management':
-        return <Monitor className="w-6 h-6" />;
-      case 'Tools & Collaboration':
-        return <Users className="w-6 h-6" />;
-      case 'Operating Systems':
-        return <Terminal className="w-6 h-6" />;
-      default:
-        return <Code className="w-6 h-6" />;
+      case 'Cloud Platforms': return <Cloud className="w-5 h-5" />;
+      case 'Infrastructure & Automation': return <Server className="w-5 h-5" />;
+      case 'Programming & Scripting': return <Code className="w-5 h-5" />;
+      case 'Monitoring & Observability': return <Monitor className="w-5 h-5" />;
+      default: return <Terminal className="w-5 h-5" />;
     }
   };
 
   return (
-    <section id="skills" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-500/10 mb-4">
-              <Code className="w-8 h-8 text-orange-500" />
-            </div>
-            <h2 className="text-4xl font-bold mb-4">Skills & Technologies</h2>
-            <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              A comprehensive toolkit for modern DevOps and cloud infrastructure management
-            </p>
-          </div>
+    <section id="skills" className="relative">
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-black mb-6">Technical Tools</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Expertise across the full DevOps spectrum, from cloud architecture to granular observability.
+          </p>
+        </motion.div>
 
-          {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Object.entries(skills).map(([category, skillList], index) => (
-              <Card 
-                key={category} 
-                className="bg-card/80 backdrop-blur-sm border border-border hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg group shadow-md"
+        <div className="max-w-5xl mx-auto">
+          {/* Tabs Navigation */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12 p-1.5 bg-muted/50 rounded-2xl border border-border/50 backdrop-blur-sm">
+            {Object.keys(skills).map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveTab(category)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === category
+                  ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                  }`}
               >
-                <CardHeader className="pb-4">
-                  <CardTitle className="flex items-center gap-3 text-lg">
-                    <div className="text-orange-500 group-hover:scale-110 transition-transform duration-300">
-                      {getIcon(category)}
-                    </div>
-                    <span className="group-hover:text-orange-500 transition-all duration-300">
-                      {category}
-                    </span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {skillList.map((skill, skillIndex) => (
-                      <Badge
-                        key={skillIndex}
-                        variant="secondary"
-                        className="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 hover:bg-orange-500 hover:text-white transition-all duration-300 cursor-default border border-orange-200/50 dark:border-orange-800/50"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                {getIcon(category)}
+                <span className="whitespace-nowrap">{category}</span>
+              </button>
             ))}
           </div>
 
-          {/* Additional Skills Info */}
-          <div className="mt-12 text-center">
-            <Card className="bg-orange-50/50 dark:bg-orange-950/20 border-orange-200/50 dark:border-orange-800/50 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4 text-orange-500">
-                  Continuous Learning
-                </h3>
-                <p className="text-muted-foreground max-w-3xl mx-auto">
-                  Always staying updated with the latest technologies and best practices in DevOps, 
-                  cloud architecture, and site reliability engineering. Currently exploring advanced 
-                  Kubernetes patterns, GitOps workflows, and emerging observability tools.
-                </p>
-              </CardContent>
-            </Card>
+          {/* Skills Content with Animated Bars */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[400px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8"
+              >
+                {skills[activeTab].map((skill, index) => (
+                  <div key={skill.name} className="space-y-3">
+                    <div className="flex justify-between items-center px-1">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-orange-500" />
+                        <span className="font-bold text-foreground tracking-tight">{skill.name}</span>
+                      </div>
+                      <span className="text-sm font-mono text-muted-foreground font-bold">{skill.level}%</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden border border-border/20">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
+                        className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.3)]"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
+
+          {/* Bottom Branding / Note */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="mt-20 p-8 rounded-[2rem] bg-gradient-to-br from-orange-500/5 to-transparent border border-orange-500/10 text-center"
+          >
+            <h3 className="text-xl font-bold mb-3 text-orange-500">Continuous Integration, Continuous Learning</h3>
+            <p className="text-muted-foreground text-sm max-w-3xl mx-auto leading-relaxed">
+              I specialize in streamlining complex cloud infrastructures, ensuring high availability, and optimizing resource utilization. My focus is on creating developer-friendly environments that empower teams to ship faster and more reliably.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

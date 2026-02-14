@@ -1,97 +1,114 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
-import { FolderOpen, ExternalLink, Zap, Target, Users } from 'lucide-react';
+import { FolderOpen, ExternalLink, Github, Zap, Target, Users } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
+import { motion } from 'framer-motion';
 
 const ProjectsSection = () => {
   const { projects } = portfolioData;
 
-  const handleViewOnLinkedIn = (url) => {
-    window.open(url, '_blank');
-  };
-
   const getProjectIcon = (title) => {
-    if (title.includes('Email')) return <Zap className="w-6 h-6" />;
-    if (title.includes('Mission')) return <Target className="w-6 h-6" />;
-    if (title.includes('Onboarding')) return <Users className="w-6 h-6" />;
-    return <FolderOpen className="w-6 h-6" />;
+    if (title.includes('Email')) return <Zap className="w-5 h-5" />;
+    if (title.includes('Mission')) return <Target className="w-5 h-5" />;
+    if (title.includes('Onboarding')) return <Users className="w-5 h-5" />;
+    return <FolderOpen className="w-5 h-5" />;
   };
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-500/10 mb-4">
-              <FolderOpen className="w-8 h-8 text-orange-500" />
-            </div>
-            <h2 className="text-4xl font-bold mb-4">Projects</h2>
-            <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Innovation-driven projects that improve operational efficiency and reliability
-            </p>
-          </div>
+    <section id="projects" className="relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-black mb-6">Strategic Initiatives</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+            Measurable impact through automation, observability, and strategic developer enablement.
+          </p>
+        </motion.div>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="bg-card/80 backdrop-blur-sm border border-border hover:border-orange-500/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group shadow-md"
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center border border-orange-200/50 dark:border-orange-800/50">
-                      <div className="text-orange-500">
-                        {getProjectIcon(project.title)}
-                      </div>
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto text-left">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative h-full flex flex-col bg-card/40 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border border-border/50 hover:border-orange-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10"
+            >
+              {/* Project Image Header */}
+              <div className="relative h-56 w-full overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4 z-20">
+                  <div className="p-2.5 rounded-xl bg-orange-500 text-white shadow-lg">
+                    {getProjectIcon(project.title)}
                   </div>
-                  <CardTitle className="text-lg font-bold text-orange-500 leading-tight group-hover:text-orange-600 transition-all duration-300">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-foreground/90 leading-relaxed">
-                    {project.description}
-                  </p>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-wrap gap-2">
+                  {project.tags?.map((tag) => (
+                    <span key={tag} className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-bold text-white uppercase tracking-wider border border-white/20 whitespace-nowrap">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-                  {/* Action Button */}
-                  <div className="pt-2">
-                    <a
-                      href={project.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium border border-orange-300 dark:border-orange-700 rounded-md text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      View on LinkedIn
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Additional Project Info */}
-          <div className="mt-12 text-center">
-            <Card className="bg-orange-50/50 dark:bg-orange-950/20 border-orange-200/50 dark:border-orange-800/50 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4 text-orange-500">
-                  Impact & Innovation
+              {/* Project Content */}
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="text-2xl font-black tracking-tight mb-4 group-hover:text-orange-500 transition-colors">
+                  {project.title}
                 </h3>
-                <p className="text-muted-foreground max-w-3xl mx-auto">
-                  These projects showcase a commitment to automation, process improvement,
-                  and knowledge sharing. Each initiative has delivered measurable business
-                  value through reduced operational overhead, improved team efficiency,
-                  and enhanced system reliability.
+                <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-1">
+                  {project.description}
                 </p>
-              </CardContent>
-            </Card>
-          </div>
+
+                <div className="pt-6 border-t border-border/30 flex items-center justify-between mt-auto">
+                  <a
+                    href={project.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-orange-500 hover:text-orange-600 transition-all group/link"
+                  >
+                    Case Study
+                    <ExternalLink className="ml-2 w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+                  </a>
+
+                  <div className="flex gap-4">
+                    <button className="text-muted-foreground hover:text-foreground transition-colors">
+                      <Github className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Impact Statement */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-24 p-10 rounded-[3rem] bg-gradient-to-br from-orange-500/5 to-transparent border border-orange-500/10 max-w-5xl mx-auto shadow-inner"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            <div className="w-20 h-20 rounded-3xl bg-orange-500 flex items-center justify-center rotate-3 shadow-xl flex-shrink-0">
+              <Target className="w-10 h-10 text-white" />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl font-black mb-4">Focusing on Scalability & Reliability</h3>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Each project is designed with a "reliability-first" mindset. Beyond just solving immediate problems, I build frameworks that are easy to maintain, document, and scale as the system grows.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
