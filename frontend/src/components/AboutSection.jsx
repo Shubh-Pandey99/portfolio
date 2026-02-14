@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { User, Briefcase, TrendingDown, ShieldCheck, Zap } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
+import Terminal from './Terminal';
 
 const AboutSection = () => {
   const { about } = portfolioData;
@@ -69,6 +70,9 @@ const AboutSection = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Interactive Terminal */}
+          <Terminal />
         </div>
       </div>
     </section>

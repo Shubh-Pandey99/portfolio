@@ -13,67 +13,54 @@ import BlogsSection from './components/BlogsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingControls from './components/FloatingControls';
+import Reveal from './components/Reveal';
 
 const PortfolioContent = () => {
   const { isDark, toggleTheme } = useTheme();
 
-  useEffect(() => {
-    // Smooth scrolling for anchor links
-    const handleAnchorClick = (e) => {
-      if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
-        e.preventDefault();
-        const targetId = e.target.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    };
-
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
-  }, []);
-
-  useEffect(() => {
-    // Fade-in animation for sections
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const sections = document.querySelectorAll('section');
-    sections.forEach((section) => {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(20px)';
-      section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-      observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground selection:bg-orange-500/30">
       <FloatingControls />
       <Header isDark={isDark} toggleTheme={toggleTheme} />
+
       <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <EducationSection />
-        <CertificationsSection />
-        <ProjectsSection />
-        <BlogsSection />
-        <ContactSection />
+        <section id="home">
+          <HeroSection />
+        </section>
+
+        <Reveal delay={0.2}>
+          <AboutSection />
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <SkillsSection />
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <ExperienceSection />
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <EducationSection />
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <CertificationsSection />
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <ProjectsSection />
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <BlogsSection />
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <ContactSection />
+        </Reveal>
       </main>
+
       <Footer />
     </div>
   );
