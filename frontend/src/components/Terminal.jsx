@@ -21,8 +21,10 @@ const Terminal = () => {
             try {
                 const categories = Object.keys(portfolioData.skills);
                 return categories.map(cat => {
-                    const skillList = portfolioData.skills[cat].map(s => typeof s === 'string' ? s : s.name).join(', ');
-                    return `${cat}:\n  ${skillList}`;
+                    const skillDetails = portfolioData.skills[cat].map(s =>
+                        `${s.name} (${s.proficiency}) [${s.tags.join(', ')}]`
+                    ).join('\n  ');
+                    return `${cat}:\n  ${skillDetails}`;
                 }).join('\n\n');
             } catch (e) {
                 return 'Error parsing skills database. Use contact command for resume.';
