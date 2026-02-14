@@ -11,35 +11,39 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(true); // Default to dark theme
+  const [theme, setTheme] = useState('dark'); // Default to dark theme
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-      setIsDark(savedTheme === 'dark');
+      setTheme(savedTheme);
     } else {
-      // Default to dark theme if no preference saved
-      setIsDark(true);
+      setTheme('dark');
     }
   }, []);
 
   useEffect(() => {
     const root = document.documentElement;
-    if (isDark) {
+    if (theme === 'dark') {
       root.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-  }, [isDark]);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setIsDark(prev => !prev);
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+    <ThemeContext.Provider value={{
+      theme,
+      setTheme,
+      isDark: theme === 'dark',
+      toggleTheme
+    }}>
       {children}
     </ThemeContext.Provider>
   );
