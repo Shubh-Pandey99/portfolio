@@ -14,14 +14,14 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingControls from './components/FloatingControls';
 import Reveal from './components/Reveal';
+import CommandMenu from './components/CommandMenu';
 
 const PortfolioContent = () => {
-  const { isDark, toggleTheme } = useTheme();
-
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-orange-500/30">
+      <CommandMenu />
       <FloatingControls />
-      <Header isDark={isDark} toggleTheme={toggleTheme} />
+      <Header />
 
       <main>
         <section id="home">
