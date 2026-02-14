@@ -6,9 +6,9 @@ export const portfolioData = {
     subheading: "Cloud • Automation • Reliability • Performance",
     resumeUrl: "/Shubh_Resume.pdf",
     email: "shubhpandet@gmail.com",
-    headshot: "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NTc0MDY2OTR8MA&ixlib=rb-4.1.0&q=85"
+    headshot: "/Profile.png"
   },
-  
+
   about: {
     summary: "DevOps/Site Reliability Engineer with 5 years of experience designing, automating, and operating large-scale, cloud-native systems. Skilled in AWS/GCP/Azure, observability, CI/CD, Terraform, Kubernetes, and incident management. Proven track record of improving availability to 99.9%, reducing downtime by 28%, and cutting infra costs by 20% while ensuring compliance and security in production environments. Adept at managing full-stack applications and improving operational workflows to reduce downtime, improve efficiency, and support business-critical systems."
   },
