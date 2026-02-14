@@ -83,21 +83,23 @@ const HeroSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href={hero.resumeUrl}
+                href="https://linkedin.com/in/shubhpandey9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white px-8 py-5 text-sm md:text-lg font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-orange-500/20 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden shrink-0"
               >
-                <Download className="mr-3 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-                Download CV
+                Connect on LinkedIn
               </a>
 
-              <button
-                onClick={scrollToAbout}
+              <a
+                href={hero.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-muted/40 hover:bg-muted text-foreground px-8 py-5 text-sm md:text-lg font-black uppercase tracking-widest rounded-2xl border border-border/50 hover:border-orange-500/30 transition-all duration-300 active:scale-95 shrink-0"
               >
-                Explore More
-              </button>
+                <Download className="mr-3 h-5 w-5" />
+                Resume
+              </a>
             </div>
 
             {/* Quick Stats */}

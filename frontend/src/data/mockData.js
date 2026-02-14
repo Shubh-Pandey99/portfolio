@@ -121,10 +121,10 @@ export const portfolioData = {
 
   projects: [
     {
-      title: "Harmony: Music Learning Platform",
-      description: "A comprehensive platform for music teachers and students to manage lessons, tracks, and progress autonomously.",
-      tags: ["React", "Firebase", "Node.js", "Tailwind"],
-      githubUrl: "https://github.com/Shubh-Pandey99/music-teacher-app",
+      title: "TeacherPro: Attendance Manager",
+      description: "A robust SaaS platform for educational institutions to automate attendance tracking, student management, and performance analytics.",
+      tags: ["React", "FastAPI", "PostgreSQL", "Docker"],
+      githubUrl: "https://github.com/Shubh-Pandey99/teacher-pro",
       deployUrl: "https://dynamic-filament.vercel.app/login",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
