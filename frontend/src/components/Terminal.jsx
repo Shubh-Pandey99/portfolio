@@ -6,55 +6,43 @@ import { portfolioData } from '../data/mockData';
 const Terminal = () => {
     const [input, setInput] = useState('');
     const [history, setHistory] = useState([
-        { type: 'output', content: 'Welcome to ShubhOS v2.2.0 (Direct SRE Console)' },
-        { type: 'output', content: 'Root access verified. System: STABLE.' },
-        { type: 'output', content: 'Type "help" to view master command list.' },
+        { type: 'output', content: 'Welcome to ShubhOS v2.1.0 (Proprietary DevOps Environment)' },
+        { type: 'output', content: 'System: Initialized. Security Status: STRICT.' },
+        { type: 'output', content: 'Type "help" to see available commands.' },
     ]);
     const terminalRef = useRef(null);
     const inputRef = useRef(null);
 
     const commands = {
-        help: () => 'System Commands:\nwhoami      - Identity profile\nls          - List filesystem\nskills      - Tech stack matrix\nexperience  - Professional log\nprojects    - Strategic initiatives\nssh [id]    - Secure entry to project infra\nblogs       - Technical writing\nmetrics     - Operational ROI\nclear       - Flush buffer\nhealth      - Cluster vitals',
+        help: () => 'Available commands:\nwhoami      - Brief summary of professional profile\nls          - List available directories\nskills      - Display technical stack\nexperience  - Show professional journey\nprojects    - List strategic initiatives\nblogs       - Display published technical articles\ncontact     - Show contact information\nclear       - Clear the terminal screen\nhealth      - Show system vitals',
         whoami: () => portfolioData.about.summary,
-        ls: () => 'drwxr-xr-x  about/\ndrwxr-xr-x  experience/\ndrwxr-xr-x  skills/\ndrwxr-xr-x  projects/\ndrwxr-xr-x  blogs/\ndrwxr-xr-x  certifications/',
+        ls: () => 'about/  experience/  skills/  projects/  blogs/  certifications/',
         skills: () => {
             try {
                 const categories = Object.keys(portfolioData.skills);
                 return categories.map(cat => {
                     const skillDetails = portfolioData.skills[cat].map(s =>
-                        `${s.name.padEnd(15)} | ${s.proficiency.padEnd(10)} | [${s.tags.join(', ')}]`
+                        `${s.name} (${s.proficiency}) [${s.tags.join(', ')}]`
                     ).join('\n  ');
-                    return `${cat.toUpperCase()}:\n  ${skillDetails}`;
+                    return `${cat}:\n  ${skillDetails}`;
                 }).join('\n\n');
             } catch (e) {
-                return 'Error: Database read failure.';
+                return 'Error parsing skills database. Use contact command for resume.';
             }
         },
         experience: () => {
             return portfolioData.experience.map(exp =>
-                `>>> ${exp.period}\n    ROLE: ${exp.title}\n    ORG : ${exp.company}\n    CORE: ${exp.responsibilities[0]}`
+                `[${exp.period}] ${exp.title} @ ${exp.company}\n- ${exp.responsibilities[0]}`
             ).join('\n\n');
         },
         projects: () => {
-            return portfolioData.projects.map(p =>
-                `[INITIATIVE] ${p.title}\n IMPACT: ${p.impact}\n DESC  : ${p.description.slice(0, 80)}...`
-            ).join('\n\n');
-        },
-        ssh: (pName) => {
-            if (!pName) return 'Usage: ssh [project_name_fragment]\nTry: ssh teacher, ssh email, ssh mission';
-            const project = portfolioData.projects.find(p => p.title.toLowerCase().includes(pName.toLowerCase()));
-            if (!project) return `ssh: Could not resolve hostname '${pName}'`;
-
-            return `Connecting to ${project.title} environment...\n[SUCCESS] Auth token accepted.\n\nINFRASTRUCTURE STACK:\n${project.architecture.map(a => ` - ${a}`).join('\n')}\n\nCURRENT METRICS:\n${Object.entries(project.metrics).map(([k, v]) => ` ${k.toUpperCase()}: ${v}`).join('\n')}`;
-        },
-        metrics: () => {
-            return 'FLEET-WIDE IMPACT ANALYSIS:\n---------------------------\nAverage MTTR Reduction   : 85%\nManual Toil Eliminated   : ~750 hrs/year\nCloud Cost Optimization  : 20%\nInfrastructure Coverage  : 100% (IaC Verified)';
+            return portfolioData.projects.map(p => `- ${p.title}: ${p.description}`).join('\n');
         },
         blogs: () => {
-            return portfolioData.blogs.map(b => `- ${b.title}\n  Published: ${b.year} | ${b.readTime}`).join('\n\n');
+            return portfolioData.blogs.map(b => `- ${b.title} (${b.readTime})`).join('\n');
         },
-        contact: () => `STRICTLY SECURE CHANNEL\nEmail: ${portfolioData.contact.email}\nLinkedIn: ${portfolioData.contact.linkedin}`,
-        health: () => 'CLUSTER STATUS: OPTIMAL\nNODES  : 12 (m5.xlarge)\nREGION : us-east-1\nUPTIME : 243 days\nLATENCY: 1.2ms (Global Edge)\nTHREATS: 0 detected',
+        contact: () => `Email: ${portfolioData.contact.email}\nPhone: ${portfolioData.contact.phone}\nLinkedIn: ${portfolioData.contact.linkedin}`,
+        health: () => 'System Status: OPTIMAL\nUptime: 99.99%\nLatency: 4ms\nPlatform: AWS EKS (prod-us-east-1)',
         clear: () => {
             setHistory([]);
             return null;
@@ -62,16 +50,15 @@ const Terminal = () => {
     };
 
     const executeCommand = (cmdText) => {
-        const parts = cmdText.trim().split(' ');
-        const cmd = parts[0].toLowerCase();
-        const arg = parts.slice(1).join(' ');
-
+        const cmd = cmdText.trim().toLowerCase();
+        // Add user input to history
         setHistory(prev => [...prev, { type: 'input', content: cmdText }]);
 
+        // Small delay to simulate system processing
         setTimeout(() => {
             let output = null;
             if (commands[cmd]) {
-                output = commands[cmd](arg);
+                output = commands[cmd]();
             } else if (cmd !== '') {
                 output = `sh: command not found: ${cmd}. Type "help" for a list of commands.`;
             }
