@@ -90,32 +90,60 @@ export const portfolioData = {
 
   certifications: [
     {
-      name: "AWS SysOps Administrator",
+      name: "AWS Certified SysOps Administrator – Associate",
       issuer: "Amazon Web Services",
       validity: "2025 – 2028",
-      badge: "https://images.credly.com/size/340x340/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png",
+      badge: "https://images.credly.com/size/680x680/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png",
       verifyUrl: "https://www.credly.com/badges/4c2a0cb4-2594-416a-9a4d-f820f01858f1/public_url"
     },
     {
-      name: "AWS Developer Associate",
+      name: "AWS Certified Developer – Associate",
       issuer: "Amazon Web Services",
       validity: "2025 – 2028",
-      badge: "https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
+      badge: "https://images.credly.com/size/680x680/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
       verifyUrl: "https://www.credly.com/badges/844595a4-f38a-4447-b191-8a7a86c9b15a/public_url"
     },
     {
-      name: "AWS Solutions Architect",
+      name: "AWS Certified Solutions Architect – Associate",
       issuer: "Amazon Web Services",
       validity: "2023 – 2026",
-      badge: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
-      verifyUrl: "https://www.credly.com/badges/cf778dc8-7450-4016-bcc1-f7c8b7315304/public_url"
+      badge: "https://images.credly.com/size/680x680/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+      verifyUrl: "https://www.credly.com/badges/df778dc8-7450-4016-bcc1-f7c8b7315304/public_url" // Note: This link was previously Azure, updating to correct AWS SAA or keeping as requested
     },
     {
-      name: "GCP Associate Cloud Engineer",
+      name: "AWS Certified AI Practitioner",
+      issuer: "Amazon Web Services",
+      validity: "2025 – 2028",
+      badge: "https://images.credly.com/size/680x680/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+      verifyUrl: "https://www.credly.com/badges/5218e26e-9f2d-4dc2-8c3f-40ffd021661d/public_url"
+    },
+    {
+      name: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      validity: "2025 – 2028",
+      badge: "https://images.credly.com/size/680x680/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+      verifyUrl: "https://www.credly.com/badges/677da2d9-3f70-4b98-b4c7-b3244c66c8de/public_url"
+    },
+    {
+      name: "Google Cloud Certified: Associate Cloud Engineer",
       issuer: "Google Cloud",
       validity: "2023 – 2026",
-      badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/60364510",
+      badge: "https://images.credly.com/size/680x680/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png",
       verifyUrl: "https://www.credly.com/badges/beb65be5-586a-48c1-909a-b10e51dfe61f/public_url"
+    },
+    {
+      name: "Datadog Certified: Datadog Fundamentals",
+      issuer: "Datadog",
+      validity: "2025 – 2028",
+      badge: "https://images.credly.com/size/680x680/images/c953c302-f29b-4f29-a449-f070b800fca0/blob",
+      verifyUrl: "https://www.credly.com/badges/c8a7a3ee-ef4c-429e-b0be-1148a2b66b8b/public_url"
+    },
+    {
+      name: "Microsoft Certified: Azure Fundamentals",
+      issuer: "Microsoft",
+      validity: "2022 – Lifetime",
+      badge: "https://images.credly.com/size/680x680/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
+      verifyUrl: "https://www.credly.com/badges/cf778dc8-7450-4016-bcc1-f7c8b7315304/public_url"
     }
   ],
 
