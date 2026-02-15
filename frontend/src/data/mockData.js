@@ -146,20 +146,28 @@ export const portfolioData = {
 
   blogs: [
     {
+      title: "AWS Systems Manager (SSM): The Ultimate Tool for Secure and Automated Cloud Operations",
+      summary: "Learn how to manage a fleet of servers in the cloud with security, consistency, and automation using AWS SSM services like Run Command, Session Manager, and Parameter Store.",
+      readTime: "15 min read",
+      year: "2024",
+      url: "https://medium.com/@shubhpandet/%EF%B8%8F-aws-systems-manager-ssm-the-ultimate-tool-for-secure-and-automated-cloud-operations-fbe47b9f4539",
+      thumbnail: "/SSM.png"
+    },
+    {
       title: "Mastering AWS Monitoring",
       summary: "Comprehensive guide to CloudWatch, EventBridge, and observability patterns.",
       readTime: "12 min read",
       year: "2024",
-      url: "https://medium.com/@shubhpandet",
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+      url: "https://medium.com/@shubhpandet/mastering-aws-monitoring-your-guide-to-observability-with-cloudwatch-and-beyond-a4dfec196726",
+      thumbnail: "/Monitoring.png"
     },
     {
       title: "Database Scaling on AWS",
       summary: "Deep dive into RDS, Aurora, and DynamoDB for global scale.",
       readTime: "15 min read",
       year: "2024",
-      url: "https://medium.com/@shubhpandet",
-      thumbnail: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80"
+      url: "https://medium.com/@shubhpandet/mastering-database-scaling-on-aws-rds-aurora-and-dynamodb-cb3c9f806969",
+      thumbnail: "/Database.png"
     }
   ],
 
