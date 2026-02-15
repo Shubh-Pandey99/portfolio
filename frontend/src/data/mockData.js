@@ -150,59 +150,23 @@ export const portfolioData = {
   projects: [
     {
       title: "TeacherPro Attendance App",
-      description: "A professional SaaS-ready dashboard for teachers. Engineered for reliability with PWA support for offline attendance and automated SMS alerts for parent-teacher communication.",
-      impact: "99.9% Uptime • 100% Accuracy • 0% Manual Toil",
-      metrics: {
-        latency: "<120ms",
-        uptime: "99.98%",
-        toilReduction: "100%"
-      },
-      architecture: [
-        "React + Tailwind Frontend hosted on Vercel",
-        "Firebase Auth & Firestore for real-time sync",
-        "AWS Lambda/Twilio for automated SMS alerts",
-        "Service Workers for robust PWA offline support"
-      ],
-      tags: ["React", "Firebase", "Node.js", "PWA"],
+      description: "A professional SaaS-ready dashboard for teachers to manage student attendance, track performance, and streamline classroom operations.",
+      tags: ["React", "Firebase", "Node.js", "Tailwind"],
       githubUrl: "https://github.com/Shubh-Pandey99/music-teacher-app",
       deployUrl: "https://dynamic-filament.vercel.app/login",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
     {
       title: "Email Remediation Automation",
-      description: "Automated remediation system (Patent Initiative) enabling L1 support to resolve critical email flow incidents autonomously using serverless state machines.",
-      impact: "MTTR: -85% • Savings: $20k/yr • Patent Initiative",
-      metrics: {
-        mttr: "5 mins (was 45 mins)",
-        savings: "$20,000 / Year",
-        automationLevel: "95%"
-      },
-      architecture: [
-        "AWS Step Functions for remediation logic",
-        "Python Lambdas for infrastructure execution",
-        "CloudWatch Events for incident triggering",
-        "Amazon SES/SNS for status notifications"
-      ],
-      tags: ["Python", "Step Functions", "Automation", "Architecture"],
+      description: "Automated remediation system enabling L1 support to resolve critical incidents autonomously. (Patent Initiative)",
+      tags: ["Python", "AWS Lambda", "Step Functions"],
       githubUrl: "https://github.com/Shubh-Pandey99",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
     {
       title: "Mission 70 Automation",
-      description: "Strategic automation initiative empowering L1 support teams with self-service tools, reducing dependency on senior engineering tiers by 70%.",
-      impact: "70% Toil Reduction • 40% Faster Deployments",
-      metrics: {
-        toilReduction: "70%",
-        deploymentSpeed: "+40%",
-        l1Autonomy: "High"
-      },
-      architecture: [
-        "Custom Portal for L1 trigger-based actions",
-        "Ansible Playbooks for config management",
-        "Terraform modules for standardized provisioning",
-        "Jenkins Pipelines for CI/CD integration"
-      ],
-      tags: ["Ansible", "Terraform", "Shell", "DevOps"],
+      description: "Empowered L1 support teams with self-service automation, increasing autonomy by 70%.",
+      tags: ["Ansible", "Terraform", "Shell"],
       githubUrl: "https://github.com/Shubh-Pandey99",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     }
