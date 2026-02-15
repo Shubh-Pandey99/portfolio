@@ -152,6 +152,8 @@ export const portfolioData = {
       title: "TeacherPro Attendance App",
       description: "A professional SaaS-ready dashboard for teachers to manage student attendance, track performance, and streamline classroom operations.",
       tags: ["React", "Firebase", "Node.js", "Tailwind"],
+      features: ["PWA & Offline Support", "Automated Parent Notifications (SNS)", "Role-based Access Control", "Performance Analytics Dashboard"],
+      architecture: "React Frontend (Vite) + Firebase (Auth, Firestore, Hosting) + Node.js (Serverless Functions)",
       githubUrl: "https://github.com/Shubh-Pandey99/music-teacher-app",
       deployUrl: "https://dynamic-filament.vercel.app/login",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
@@ -160,6 +162,8 @@ export const portfolioData = {
       title: "Email Remediation Automation",
       description: "Automated remediation system enabling L1 support to resolve critical incidents autonomously. (Patent Initiative)",
       tags: ["Python", "AWS Lambda", "Step Functions"],
+      features: ["Self-healing Infrastructure", "Step Function Orchestration", "IAM Least Privilege Automation", "Audit Trail Logging"],
+      architecture: "AWS Step Functions + Lambda (Python) + EventBridge + API Gateway + DynamoDB",
       githubUrl: "https://github.com/Shubh-Pandey99",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
@@ -167,6 +171,8 @@ export const portfolioData = {
       title: "Mission 70 Automation",
       description: "Empowered L1 support teams with self-service automation, increasing autonomy by 70%.",
       tags: ["Ansible", "Terraform", "Shell"],
+      features: ["Self-service Automation Portal", "Dynamic Inventory", "Infrastructure as Code", "Config Drift Correction"],
+      architecture: "Terraform + Ansible Core + Jenkins/GitLab Pipelines + AWS Hybrid Connectivity",
       githubUrl: "https://github.com/Shubh-Pandey99",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     }

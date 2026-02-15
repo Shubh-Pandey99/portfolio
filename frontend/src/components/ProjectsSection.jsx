@@ -1,10 +1,11 @@
-import React from 'react';
-import { FolderOpen, ExternalLink, Github, Zap, Target, Layout, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import { FolderOpen, ExternalLink, Github, Zap, Target, Layout, Users, ChevronDown, Cpu, Layers } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ProjectsSection = () => {
   const { projects } = portfolioData;
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const getProjectIcon = (title) => {
     if (title.includes('Email')) return <Zap className="w-8 h-8" />;
@@ -28,7 +29,7 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -36,25 +37,29 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative h-full flex flex-col p-10 bg-card/40 backdrop-blur-xl rounded-[3rem] border border-border/50 hover:border-orange-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 min-h-[420px]"
+              className={`group relative flex flex-col p-8 md:p-10 bg-card/40 backdrop-blur-xl rounded-[3rem] border transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 ${expandedIndex === index ? 'border-orange-500/60 ring-1 ring-orange-500/20' : 'border-border/50 hover:border-orange-500/40'}`}
             >
-              {/* Decorative Background Element */}
-              <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-10 transition-opacity">
-                <Layout className="w-32 h-32 rotate-12" />
-              </div>
-
               {/* Project Header */}
-              <div className="mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">
-                  {getProjectIcon(project.title)}
+              <div className="mb-6">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">
+                    {getProjectIcon(project.title)}
+                  </div>
+                  <div className="flex gap-4">
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-xl hover:bg-muted">
+                        <Github className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
                 <h3 className="text-2xl font-black tracking-tight mb-3 group-hover:text-orange-500 transition-colors">
                   {project.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tags?.map((tag) => (
-                    <span key={tag} className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
-                      #{tag}
+                    <span key={tag} className="px-2.5 py-1 bg-muted/50 rounded-lg text-[9px] font-black uppercase tracking-widest text-muted-foreground border border-border/30">
+                      {tag}
                     </span>
                   ))}
                 </div>
@@ -65,30 +70,61 @@ const ProjectsSection = () => {
                 {project.description}
               </p>
 
+              {/* Deep Dive Section */}
+              <button
+                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                className="w-full flex items-center justify-between p-4 mb-6 rounded-2xl bg-muted/30 hover:bg-muted/50 transition-all border border-border/30 group/btn"
+              >
+                <span className="text-[10px] font-black uppercase tracking-widest text-foreground/80 group-hover/btn:text-orange-500 flex items-center gap-2">
+                  <Cpu className="w-3.5 h-3.5" />
+                  Technical Deep Dive
+                </span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-500 ${expandedIndex === index ? 'rotate-180 text-orange-500' : 'text-muted-foreground'}`} />
+              </button>
+
+              <AnimatePresence>
+                {expandedIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-6 mb-8 pt-2">
+                      <div>
+                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-orange-500 mb-3 block">System Architecture</span>
+                        <div className="p-4 rounded-2xl bg-background/50 border border-border/30 flex items-start gap-3">
+                          <Layers className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                          <p className="text-xs font-bold leading-relaxed text-foreground/90">{project.architecture}</p>
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-orange-500 mb-3 block">SRE Focused Features</span>
+                        <div className="grid grid-cols-1 gap-2">
+                          {project.features?.map((feature, i) => (
+                            <div key={i} className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
+                              <div className="w-1 h-1 rounded-full bg-orange-500" />
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               {/* Project Action */}
-              <div className="pt-6 border-t border-border/30 flex items-center justify-between">
+              <div className="pt-6 border-t border-border/30">
                 <a
                   href={project.deployUrl || project.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-[10px] font-black uppercase tracking-[0.2em] text-orange-500 hover:text-orange-600 transition-all group/link"
                 >
-                  {project.deployUrl ? 'Live Application' : 'View Architecture'}
+                  {project.deployUrl ? 'Live Application' : 'Request Demo / Architecture'}
                   <ExternalLink className="ml-2 w-3 h-3 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                 </a>
-
-                <div className="flex gap-4">
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <Github className="w-5 h-5 shadow-sm" />
-                    </a>
-                  )}
-                </div>
               </div>
             </motion.div>
           ))}

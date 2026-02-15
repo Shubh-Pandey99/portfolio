@@ -14,7 +14,7 @@ const Terminal = () => {
     const inputRef = useRef(null);
 
     const commands = {
-        help: () => 'Available commands:\nwhoami      - Brief summary of professional profile\nls          - List available directories\nskills      - Display technical stack\nexperience  - Show professional journey\nprojects    - List strategic initiatives\nblogs       - Display published technical articles\ncontact     - Show contact information\nclear       - Clear the terminal screen\nhealth      - Show system vitals',
+        help: () => 'Available commands:\nwhoami      - Brief summary of professional profile\nls          - List available directories\nskills      - Display technical stack\nexperience  - Show professional journey\nprojects    - List strategic initiatives\nssh <name>  - Remote into a project to view architecture\nblogs       - Display published technical articles\ncontact     - Show contact information\nclear       - Clear the terminal screen\nhealth      - Show system vitals',
         whoami: () => portfolioData.about.summary,
         ls: () => 'about/  experience/  skills/  projects/  blogs/  certifications/',
         skills: () => {
@@ -36,7 +36,15 @@ const Terminal = () => {
             ).join('\n\n');
         },
         projects: () => {
-            return portfolioData.projects.map(p => `- ${p.title}: ${p.description}`).join('\n');
+            return portfolioData.projects.map(p => `- ${p.title} (Can be accessed via: ssh ${p.title.split(' ')[0].toLowerCase()})`).join('\n');
+        },
+        ssh: (arg) => {
+            if (!arg) return 'Usage: ssh <project-name>\nExample: ssh teacherpro';
+            const project = portfolioData.projects.find(p => p.title.toLowerCase().includes(arg.toLowerCase()));
+            if (project) {
+                return `Connecting to cluster ${arg}.shubh.dev...\nAccess Granted.\n\n[PROJECT SPECIFICATIONS]\nTitle: ${project.title}\nArchitecture: ${project.architecture}\nSRE Features: ${project.features.join(', ')}\nInfrastructure: Automated via CD`;
+            }
+            return `ssh: Could not resolve hostname ${arg}: Name or service not known`;
         },
         blogs: () => {
             return portfolioData.blogs.map(b => `- ${b.title} (${b.readTime})`).join('\n');
@@ -50,15 +58,16 @@ const Terminal = () => {
     };
 
     const executeCommand = (cmdText) => {
-        const cmd = cmdText.trim().toLowerCase();
-        // Add user input to history
+        const parts = cmdText.trim().split(' ');
+        const cmd = parts[0].toLowerCase();
+        const arg = parts.slice(1).join(' ');
+
         setHistory(prev => [...prev, { type: 'input', content: cmdText }]);
 
-        // Small delay to simulate system processing
         setTimeout(() => {
             let output = null;
             if (commands[cmd]) {
-                output = commands[cmd]();
+                output = commands[cmd](arg);
             } else if (cmd !== '') {
                 output = `sh: command not found: ${cmd}. Type "help" for a list of commands.`;
             }
