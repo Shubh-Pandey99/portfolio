@@ -60,7 +60,7 @@ const SkillsSection = () => {
           </div>
 
           {/* Skills Content - Modern Card Grid */}
-          <div className="min-h-[450px]">
+          <div>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
