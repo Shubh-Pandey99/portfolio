@@ -50,15 +50,15 @@ A professional SaaS-ready dashboard for teachers.
 - **Architecture**: React (Vite) + Firebase (Auth, Firestore, Hosting) + Node.js (Serverless Functions).
 - **Key Features**: PWA & Offline Support, Automated Parent Notifications (SNS).
 
-### 2. Email Remediation Automation (Patent Initiative)
+### 2. Scribe - AI Meeting Assistant
+A professional Chrome Extension for real-time transcription and AI-powered summarization.
+- **Architecture**: Chrome Extension (MV3) + Vercel Backend (Flask) + OpenAI Whisper STT + Google Gemini 2.0 Flash.
+- **Key Features**: Live Audio Transcription, AI Summaries, Visual Analysis, Cloud Sync.
+
+### 3. Email Remediation Automation (Patent Initiative)
 Automated remediation system for critical incident resolution.
 - **Architecture**: AWS Step Functions + Lambda (Python) + EventBridge + API Gateway.
 - **Key Features**: Self-healing Infrastructure, IAM Least Privilege Automation.
-
-### 3. Mission 70 Automation
-L1 support empowerment through self-service automation.
-- **Architecture**: Terraform + Ansible Core + Jenkins/GitLab Pipelines.
-- **Key Features**: Self-service Automation Portal, Config Drift Correction.
 
 ---
 

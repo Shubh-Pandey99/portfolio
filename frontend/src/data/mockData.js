@@ -159,20 +159,21 @@ export const portfolioData = {
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     },
     {
+      title: "Scribe - AI Meeting Assistant",
+      description: "A professional Chrome Extension that captures and transcribes browser tab audio in real-time, providing AI-powered summaries and Q&A using Google Gemini and OpenAI Whisper.",
+      tags: ["Chrome Extension", "OpenAI Whisper", "Google Gemini", "Vercel"],
+      features: ["Live Audio Transcription (Whisper)", "AI-powered Meeting Summaries", "Screen Capture & Visual Analysis", "Cloud History Sync (MongoDB)"],
+      architecture: "Chrome Extension (MV3) + Vercel Backend (Flask) + OpenAI Whisper STT + Google Gemini 2.0 Flash",
+      githubUrl: "https://github.com/Shubh-Pandey99/scribe",
+      deployUrl: "https://scribe-extension.vercel.app",
+      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
+    },
+    {
       title: "Email Remediation Automation",
       description: "Automated remediation system enabling L1 support to resolve critical incidents autonomously. (Patent Initiative)",
       tags: ["Python", "AWS Lambda", "Step Functions"],
       features: ["Self-healing Infrastructure", "Step Function Orchestration", "IAM Least Privilege Automation", "Audit Trail Logging"],
       architecture: "AWS Step Functions + Lambda (Python) + EventBridge + API Gateway + DynamoDB",
-      githubUrl: "https://github.com/Shubh-Pandey99",
-      linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
-    },
-    {
-      title: "Mission 70 Automation",
-      description: "Empowered L1 support teams with self-service automation, increasing autonomy by 70%.",
-      tags: ["Ansible", "Terraform", "Shell"],
-      features: ["Self-service Automation Portal", "Dynamic Inventory", "Infrastructure as Code", "Config Drift Correction"],
-      architecture: "Terraform + Ansible Core + Jenkins/GitLab Pipelines + AWS Hybrid Connectivity",
       githubUrl: "https://github.com/Shubh-Pandey99",
       linkedinUrl: "https://www.linkedin.com/in/shubhpandey9/"
     }
