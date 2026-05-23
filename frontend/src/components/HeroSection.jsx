@@ -55,7 +55,7 @@ const HeroSection = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
               </span>
-              Building @ REA Group
+              Available for new projects
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-[1.05]">
@@ -129,11 +129,10 @@ const HeroSection = () => {
               {/* Dynamic Overlay */}
               <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 via-transparent to-transparent z-10 group-hover:opacity-0 transition-opacity duration-700"></div>
 
-                <img
+              <img
                 src={hero.headshot}
                 alt="Shubh Pandey"
                 className="w-full h-full object-cover object-top filter grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
-                fetchpriority="high"
               />
             </div>
 

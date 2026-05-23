@@ -4,6 +4,13 @@ import { User, Briefcase, TrendingDown, ShieldCheck, Zap } from 'lucide-react';
 import { portfolioData } from '../data/mockData';
 import Terminal from './Terminal';
 
+const iconMap = {
+  Zap: Zap,
+  "MTTR Optimization": TrendingDown,
+  ShieldCheck: ShieldCheck,
+  Briefcase: Briefcase
+};
+
 const AboutSection = () => {
   const { about } = portfolioData;
 
@@ -35,38 +42,29 @@ const AboutSection = () => {
               </div>
 
               {/* Key Highlights */}
-              <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="text-center p-4 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/50 dark:border-orange-800/50 group hover:border-orange-500/50 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/20">
-                    <Zap className="w-5 h-5" />
-                  </div>
-                  <div className="text-2xl font-bold text-orange-500 mb-1">99.9%</div>
-                  <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Availability</p>
-                </div>
-
-                <div className="text-center p-4 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/50 dark:border-orange-800/50 group hover:border-orange-500/50 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/20">
-                    <TrendingDown className="w-5 h-5" />
-                  </div>
-                  <div className="text-2xl font-bold text-orange-500 mb-1">28%</div>
-                  <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Less Downtime</p>
-                </div>
-
-                <div className="text-center p-4 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/50 dark:border-orange-800/50 group hover:border-orange-500/50 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/20">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <div className="text-2xl font-bold text-orange-500 mb-1">100%</div>
-                  <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Compliance</p>
-                </div>
-
-                <div className="text-center p-4 rounded-xl bg-orange-50/50 dark:bg-orange-950/20 border border-orange-200/50 dark:border-orange-800/50 group hover:border-orange-500/50 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/20">
-                    <Briefcase className="w-5 h-5" />
-                  </div>
-                  <div className="text-2xl font-bold text-orange-500 mb-1">5+</div>
-                  <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Years Exp.</p>
-                </div>
+              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {about.stats?.map((stat, idx) => {
+                  const IconComponent = iconMap[stat.icon] || Zap;
+                  return (
+                    <div 
+                      key={idx}
+                      className="flex flex-col items-center text-center p-5 rounded-xl bg-orange-50/40 dark:bg-orange-950/10 border border-orange-100 dark:border-orange-900/30 group hover:border-orange-500/40 hover:bg-orange-50/60 dark:hover:bg-orange-950/20 hover:shadow-lg hover:shadow-orange-500/5 transition-all duration-300"
+                    >
+                      <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/20">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <div className="text-2xl font-extrabold text-orange-500 mb-1 tracking-tight">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs font-bold text-foreground mb-2 uppercase tracking-wider">
+                        {stat.label}
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed mt-1">
+                        {stat.description}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </CardContent>
           </Card>

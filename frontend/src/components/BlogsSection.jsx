@@ -38,8 +38,6 @@ const BlogsSection = () => {
                   src={blog.thumbnail}
                   alt={blog.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                  decoding="async"
                 />
                 <div className="absolute top-4 left-4 z-20">
                   <div className="px-3 py-1.5 rounded-lg bg-orange-500 text-white text-[10px] font-black uppercase tracking-widest shadow-lg">

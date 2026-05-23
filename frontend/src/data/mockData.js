@@ -10,7 +10,33 @@ export const portfolioData = {
   },
 
   about: {
-    summary: "Senior Engineer Cloud at REA Group and seasoned DevOps/Site Reliability Engineer with 5 years of experience designing, automating, and operating large-scale, cloud-native systems. Skilled in AWS/GCP/Azure, observability, CI/CD, Terraform, Kubernetes, and incident management. Proven track record of improving availability to 99.9%, reducing downtime by 28%, and cutting infra costs by 20% while ensuring compliance and security in production environments. Adept at managing full-stack applications and improving operational workflows to reduce downtime, improve efficiency, and support business-critical systems."
+    summary: "Senior Engineer Cloud at REA Group and seasoned DevOps/Site Reliability Engineer specializing in resilient, zero-trust platform infrastructure and high-throughput CI/CD orchestration. Expert at translating business SLA/SLO requirements into automated, scalable, and self-healing systems across AWS, GCP, and Azure. Proven track record of optimizing platform stability, engineering secure ephemeral developer environments, and standardizing cross-cluster observability to enable engineering velocity without compromising production safety.",
+    stats: [
+      {
+        value: "99.9%",
+        label: "Platform SLA",
+        icon: "Zap",
+        description: "Maintained for Thales secure transfer platform serving 500+ global enterprise clients."
+      },
+      {
+        value: "28%",
+        label: "Downtime Reduced",
+        icon: "MTTR Optimization",
+        description: "Achieved via proactive observability, auto-healing alerts, and event-driven automation."
+      },
+      {
+        value: "Zero-Trust",
+        label: "CI/CD Identity",
+        icon: "ShieldCheck",
+        description: "100% OIDC credential adoption across Kubernetes runners, removing static AWS keys."
+      },
+      {
+        value: "5+ Years",
+        label: "Cloud Scale Ops",
+        icon: "Briefcase",
+        description: "Engineering and operating large-scale multi-cloud infrastructures using IaC/GitOps."
+      }
+    ]
   },
 
   skills: {
@@ -24,26 +50,20 @@ export const portfolioData = {
       { name: "Ansible", proficiency: "Advanced", tags: ["Config Mgmt"] },
       { name: "Docker", proficiency: "Expert", tags: ["Containerization"] },
       { name: "Kubernetes", proficiency: "Expert", tags: ["Orchestration"] },
-      { name: "Helm", proficiency: "Advanced", tags: ["K8s Packaging"] },
       { name: "GitLab CI/CD", proficiency: "Expert", tags: ["Automation"] },
-      { name: "Jenkins", proficiency: "Advanced", tags: ["Pipelines"] },
-      { name: "Buildkite", proficiency: "Advanced", tags: ["CI/CD", "Pipelines"] }
+      { name: "Jenkins", proficiency: "Advanced", tags: ["Pipelines"] }
     ],
     "Programming & Scripting": [
       { name: "Python", proficiency: "Expert", tags: ["Scripting", "FastAPI"] },
       { name: "Bash", proficiency: "Expert", tags: ["Automation"] },
       { name: "TypeScript", proficiency: "Advanced", tags: ["Frontend", "Node.js"] },
-      { name: "Vue.js", proficiency: "Advanced", tags: ["Frontend", "Portals"] },
       { name: "Java", proficiency: "Proficient", tags: ["Backend"] }
     ],
     "Monitoring & Observability": [
       { name: "CloudWatch", proficiency: "Expert", tags: ["Log Insight"] },
       { name: "Datadog", proficiency: "Advanced", tags: ["APM"] },
       { name: "Prometheus", proficiency: "Expert", tags: ["Metrics"] },
-      { name: "Grafana", proficiency: "Expert", tags: ["Dashboards"] },
-      { name: "New Relic", proficiency: "Advanced", tags: ["APM", "Alerts"] },
-      { name: "PagerDuty", proficiency: "Advanced", tags: ["Incident Mgmt"] },
-      { name: "ServiceNow", proficiency: "Proficient", tags: ["ITSM"] }
+      { name: "Grafana", proficiency: "Expert", tags: ["Dashboards"] }
     ]
   },
 
@@ -106,12 +126,6 @@ export const portfolioData = {
       institution: "Jaypee Institute of Information Technology",
       cgpa: "8.0",
       period: "2017–2021"
-    },
-    {
-      degree: "Senior Secondary School",
-      institution: "Puranchandra Vidyaniketan",
-      cgpa: "N/A",
-      period: "April 2016"
     }
   ],
 

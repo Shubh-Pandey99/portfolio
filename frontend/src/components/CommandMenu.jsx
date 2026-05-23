@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Command } from 'cmdk';
-import { Search, Home, User, Code, Briefcase, Rocket, Book, Mail, Github, Linkedin, Terminal, Award } from 'lucide-react';
+import { Search, Home, User, Code, Briefcase, Rocket, Book, Mail, Github, Linkedin, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const CommandMenu = () => {
@@ -75,7 +75,6 @@ const CommandMenu = () => {
                                         <CommandItem onSelect={() => scrollToSection('skills')} icon={<Code className="w-4 h-4" />} label="Technical Skills" />
                                         <CommandItem onSelect={() => scrollToSection('experience')} icon={<Briefcase className="w-4 h-4" />} label="Experience Timeline" />
                                         <CommandItem onSelect={() => scrollToSection('projects')} icon={<Rocket className="w-4 h-4" />} label="Featured Projects" />
-                                        <CommandItem onSelect={() => scrollToSection('certifications')} icon={<Award className="w-4 h-4" />} label="Certifications" />
                                         <CommandItem onSelect={() => scrollToSection('blogs')} icon={<Book className="w-4 h-4" />} label="Medium Blogs" />
                                         <CommandItem onSelect={() => scrollToSection('contact')} icon={<Mail className="w-4 h-4" />} label="Get In Touch" />
                                     </Command.Group>
