@@ -39,7 +39,7 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [navItems]);
+  }, []);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -75,7 +75,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-black text-[15px] md:text-xl tracking-tighter uppercase whitespace-nowrap leading-none mb-0.5">Shubh Pandey</span>
-              <span className="text-[7px] md:text-[9px] font-bold text-orange-500 tracking-[0.2em] uppercase leading-none opacity-80">DevOps & SRE</span>
+              <span className="text-[7px] md:text-[9px] font-bold text-orange-500 tracking-[0.2em] uppercase leading-none opacity-80">Senior Engineer Cloud</span>
             </div>
           </div>
 

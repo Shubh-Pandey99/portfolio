@@ -24,20 +24,26 @@ export const portfolioData = {
       { name: "Ansible", proficiency: "Advanced", tags: ["Config Mgmt"] },
       { name: "Docker", proficiency: "Expert", tags: ["Containerization"] },
       { name: "Kubernetes", proficiency: "Expert", tags: ["Orchestration"] },
+      { name: "Helm", proficiency: "Advanced", tags: ["K8s Packaging"] },
       { name: "GitLab CI/CD", proficiency: "Expert", tags: ["Automation"] },
-      { name: "Jenkins", proficiency: "Advanced", tags: ["Pipelines"] }
+      { name: "Jenkins", proficiency: "Advanced", tags: ["Pipelines"] },
+      { name: "Buildkite", proficiency: "Advanced", tags: ["CI/CD", "Pipelines"] }
     ],
     "Programming & Scripting": [
       { name: "Python", proficiency: "Expert", tags: ["Scripting", "FastAPI"] },
       { name: "Bash", proficiency: "Expert", tags: ["Automation"] },
       { name: "TypeScript", proficiency: "Advanced", tags: ["Frontend", "Node.js"] },
+      { name: "Vue.js", proficiency: "Advanced", tags: ["Frontend", "Portals"] },
       { name: "Java", proficiency: "Proficient", tags: ["Backend"] }
     ],
     "Monitoring & Observability": [
       { name: "CloudWatch", proficiency: "Expert", tags: ["Log Insight"] },
       { name: "Datadog", proficiency: "Advanced", tags: ["APM"] },
       { name: "Prometheus", proficiency: "Expert", tags: ["Metrics"] },
-      { name: "Grafana", proficiency: "Expert", tags: ["Dashboards"] }
+      { name: "Grafana", proficiency: "Expert", tags: ["Dashboards"] },
+      { name: "New Relic", proficiency: "Advanced", tags: ["APM", "Alerts"] },
+      { name: "PagerDuty", proficiency: "Advanced", tags: ["Incident Mgmt"] },
+      { name: "ServiceNow", proficiency: "Proficient", tags: ["ITSM"] }
     ]
   },
 
@@ -100,6 +106,12 @@ export const portfolioData = {
       institution: "Jaypee Institute of Information Technology",
       cgpa: "8.0",
       period: "2017–2021"
+    },
+    {
+      degree: "Senior Secondary School",
+      institution: "Puranchandra Vidyaniketan",
+      cgpa: "N/A",
+      period: "April 2016"
     }
   ],
 

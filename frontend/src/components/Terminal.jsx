@@ -50,7 +50,7 @@ const Terminal = () => {
             return portfolioData.blogs.map(b => `- ${b.title} (${b.readTime})`).join('\n');
         },
         contact: () => `Email: ${portfolioData.contact.email}\nPhone: ${portfolioData.contact.phone}\nLinkedIn: ${portfolioData.contact.linkedin}`,
-        health: () => 'System Status: OPTIMAL\nUptime: 99.99%\nLatency: 4ms\nPlatform: AWS EKS (prod-us-east-1)',
+        health: () => `System Status: OPTIMAL\nUptime: 99.99%\nLatency: ${Math.floor(Math.random() * 10) + 2}ms\nPlatform: AWS EKS (prod-us-east-1)`,
         clear: () => {
             setHistory([]);
             return null;
