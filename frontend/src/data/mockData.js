@@ -115,14 +115,14 @@ export const portfolioData = {
       name: "AWS Certified Generative AI Developer – Professional",
       issuer: "Amazon Web Services",
       validity: "2025 – 2028",
-      badge: "https://images.credly.com/size/680x680/images/52c6e5ac-9516-4944-a4df-e31b23c9bbf2/image.png",
+      badge: "https://images.credly.com/size/680x680/images/52c6e5ac-9516-4944-a4df-e31b23c9bbf2/blob",
       verifyUrl: "https://www.credly.com/badges/bb57e8ba-d7a9-4043-b738-4261fc40c32c/public_url"
     },
     {
       name: "AWS Certified GenAI Developer – Early Adopter",
       issuer: "Amazon Web Services",
       validity: "2025 – Lifetime",
-      badge: "https://images.credly.com/size/680x680/images/9de9a2f7-3259-4720-bb74-095563bb1e49/image.png",
+      badge: "https://images.credly.com/size/680x680/images/9de9a2f7-3259-4720-bb74-095563bb1e49/blob",
       verifyUrl: "https://www.credly.com/badges/128a45fa-ae46-4026-b76c-321391c524b5/public_url"
     },
     {
