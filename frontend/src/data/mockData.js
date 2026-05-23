@@ -2,7 +2,7 @@
 export const portfolioData = {
   hero: {
     name: "Shubh Pandey",
-    title: "DevOps & Site Reliability Engineer",
+    title: "Senior Engineer Cloud",
     subheading: "Cloud • Automation • Reliability • Performance",
     resumeUrl: "/Shubh_Resume.pdf",
     email: "shubhpandet@gmail.com",
@@ -10,7 +10,7 @@ export const portfolioData = {
   },
 
   about: {
-    summary: "DevOps/Site Reliability Engineer with 5 years of experience designing, automating, and operating large-scale, cloud-native systems. Skilled in AWS/GCP/Azure, observability, CI/CD, Terraform, Kubernetes, and incident management. Proven track record of improving availability to 99.9%, reducing downtime by 28%, and cutting infra costs by 20% while ensuring compliance and security in production environments. Adept at managing full-stack applications and improving operational workflows to reduce downtime, improve efficiency, and support business-critical systems."
+    summary: "Senior Engineer Cloud at REA Group and seasoned DevOps/Site Reliability Engineer with 5 years of experience designing, automating, and operating large-scale, cloud-native systems. Skilled in AWS/GCP/Azure, observability, CI/CD, Terraform, Kubernetes, and incident management. Proven track record of improving availability to 99.9%, reducing downtime by 28%, and cutting infra costs by 20% while ensuring compliance and security in production environments. Adept at managing full-stack applications and improving operational workflows to reduce downtime, improve efficiency, and support business-critical systems."
   },
 
   skills: {
@@ -43,16 +43,30 @@ export const portfolioData = {
 
   experience: [
     {
+      title: "Senior Engineer Cloud",
+      company: "REA Cyber City",
+      period: "Jan 2026 – Present",
+      location: "Gurugram, India",
+      responsibilities: [
+        "Improved CI/CD reliability by fixing AWS instance-profile credential timeout/retry behavior in Shipper, addressing a failure mode affecting roughly 29% of builds in high-volume pipelines.",
+        "Designed self-hosted GitHub Actions runner architecture on Kubernetes with ephemeral auto-scaling runners, network-zone segmentation, and secure container-mode execution for enterprise platform use.",
+        "Implemented zero-trust cloud access patterns for CI by removing pod-level AWS permissions and adopting OIDC-based short-lived credentials for job-level access.",
+        "Drove cost/performance optimization of runner infrastructure through ARM64/Graviton-first sizing strategy and standardized runner images.",
+        "Enhanced PaaS observability and platform health with cross-cluster monitoring, synthetic checks, and SLI-oriented validation for custom-resource lifecycle and connectivity paths."
+      ]
+    },
+    {
       title: "DevOps Engineer",
       company: "Thales Digital Identity & Security",
-      period: "Dec 2023 – Present",
+      period: "Dec 2023 – Dec 2025",
       location: "Noida, India",
       responsibilities: [
         "Developed full-stack solutions for the Thales Secure File Transfer (TSFT) platform and enforced SLIs, SLOs, and error budgets to maintain 99.9% availability across 500+ global enterprise customers.",
         "Built robust frontend portals using Vue.js and Typescript, hosted on S3 and delivered via CloudFront, improving UI performance by 30%.",
-        "Centralized and tuned observability with CloudWatch, OpenSearch/ELK, and Grafana, building unified dashboards for metrics, logs, and traces.",
-        "Containerized IBM Sterling Connect: Direct with Docker, deployed on production EKS and ECS Fargate, cutting infra costs by 20%.",
-        "Provisioned complete infrastructure using Terraform, deploying AWS resources including Lambda, API Gateway, Step Functions, DynamoDB, etc."
+        "Centralized and tuned observability with CloudWatch, OpenSearch/ELK, and Grafana, building unified dashboards for metrics, logs, and traces; integrated EventBridge + Step Functions + PagerDuty.",
+        "Containerized IBM Sterling Connect: Direct with Docker, deployed on AWS EKS, enabling secure, scalable file transfers and cutting infra costs by 20%.",
+        "Provisioned the complete infrastructure using Terraform, deploying AWS resources including Lambda, API Gateway, Step Functions, Cognito, DynamoDB, Transfer Family etc.",
+        "Designed backend services using FastAPI on AWS Lambda in Python, ensuring scalable and serverless architecture."
       ]
     },
     {
@@ -61,10 +75,11 @@ export const portfolioData = {
       period: "Aug 2021 – Dec 2023",
       location: "Noida, India",
       responsibilities: [
-        "Managed AWS services (EC2, RDS, S3, VPC) specializing in fault tolerance and auto-scaling, reducing cloud downtime by 28%.",
-        "Configured Datadog and Prometheus monitoring pipelines, improving observability by 15%.",
+        "Managed AWS services (EC2, RDS, S3, VPC) specializing on fault tolerance and auto-scaling, reducing cloud downtime by 28%.",
+        "Configured Datadog and Prometheus monitoring pipelines, defining SLIs and automating alerts/log rotation, improving observability by 15%.",
         "Optimized cloud infrastructure costs with autoscaling, right-sizing, and serverless adoption while maintaining SLAs.",
-        "Created Ansible playbooks for system configuration, cutting deployment time by 40% across 10+ servers."
+        "Created Ansible playbooks for system configuration and dependency management, cutting deployment time by 40% across 10+ servers.",
+        "Participated in on-call rotations, handling escalations, network diagnostics, and RCAs for production issues."
       ]
     },
     {
@@ -73,8 +88,8 @@ export const portfolioData = {
       period: "Feb 2021 – Aug 2021",
       location: "Noida, India",
       responsibilities: [
-        "Engineered a secure Apple backend payload encryption system utilizing the Java Cryptography Architecture (JCA).",
-        "Executed 50+ functional test cases for the platform's back testing framework, enhancing test coverage by 25%."
+        "Engineered a secure Apple backend payload encryption system utilizing the Java Cryptography Architecture (JCA), enhancing transaction security and minimizing data breaches for Visa transactions.",
+        "Executed 50+ functional test cases for the platform's back testing framework, enhancing test coverage by 25% and identifying critical bugs pre-deployment."
       ]
     }
   ],
@@ -90,16 +105,37 @@ export const portfolioData = {
 
   certifications: [
     {
-      name: "AWS Certified SysOps Administrator – Associate",
+      name: "AWS Certified DevOps Engineer – Professional",
       issuer: "Amazon Web Services",
       validity: "2025 – 2028",
+      badge: "https://images.credly.com/size/680x680/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png",
+      verifyUrl: "https://www.credly.com/badges/1b93a0ed-8a58-46d8-9489-e23bc97a3645/public_url"
+    },
+    {
+      name: "AWS Certified Generative AI Developer – Professional",
+      issuer: "Amazon Web Services",
+      validity: "2025 – 2028",
+      badge: "https://images.credly.com/size/680x680/images/52c6e5ac-9516-4944-a4df-e31b23c9bbf2/image.png",
+      verifyUrl: "https://www.credly.com/badges/bb57e8ba-d7a9-4043-b738-4261fc40c32c/public_url"
+    },
+    {
+      name: "AWS Certified GenAI Developer – Early Adopter",
+      issuer: "Amazon Web Services",
+      validity: "2025 – Lifetime",
+      badge: "https://images.credly.com/size/680x680/images/9de9a2f7-3259-4720-bb74-095563bb1e49/image.png",
+      verifyUrl: "https://www.credly.com/badges/128a45fa-ae46-4026-b76c-321391c524b5/public_url"
+    },
+    {
+      name: "AWS Certified SysOps Administrator – Associate",
+      issuer: "Amazon Web Services",
+      validity: "2026 – 2029",
       badge: "https://images.credly.com/size/680x680/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png",
       verifyUrl: "https://www.credly.com/badges/4c2a0cb4-2594-416a-9a4d-f820f01858f1/public_url"
     },
     {
       name: "AWS Certified Developer – Associate",
       issuer: "Amazon Web Services",
-      validity: "2025 – 2028",
+      validity: "2026 – 2029",
       badge: "https://images.credly.com/size/680x680/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
       verifyUrl: "https://www.credly.com/badges/844595a4-f38a-4447-b191-8a7a86c9b15a/public_url"
     },

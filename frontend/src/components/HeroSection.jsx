@@ -7,8 +7,9 @@ const HeroSection = () => {
   const { hero } = portfolioData;
   const [roleIndex, setRoleIndex] = useState(0);
   const roles = [
-    "DevOps Engineer",
+    "Senior Engineer Cloud",
     "Site Reliability Engineer",
+    "DevOps Engineer",
     "Cloud Architect",
     "Automation Specialist"
   ];
