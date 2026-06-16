@@ -1,8 +1,16 @@
+<div align="center">
+
 # Shubh Pandey – DevOps & Site Reliability Engineer Portfolio
 
-A premium, interactive, and engineering-focused portfolio designed to showcase expertise in cloud automation, infrastructure reliability, and high-scale system operations.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-Live: [portfolio-shubh-pandey99s-projects.vercel.app](https://portfolio-shubh-pandey99s-projects.vercel.app/)
+**A premium, interactive, and engineering-focused portfolio designed to showcase expertise in cloud automation, infrastructure reliability, and high-scale system operations.**
+
+👉 **Live App:** [portfolio-six-murex-ggybbly68c.vercel.app](https://portfolio-six-murex-ggybbly68c.vercel.app/)
+
+</div>
 
 ## ⚡ Core Philosophy
 Building resilient cloud ecosystems and automating the path to production. Always scaling, always optimizing.
