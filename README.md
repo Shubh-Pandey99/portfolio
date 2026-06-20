@@ -8,7 +8,7 @@
 
 **An engineering-focused portfolio designed to showcase expertise in cloud automation, infrastructure reliability, and high-scale system operations.**
 
-👉 **Live App:** [portfolio-six-murex-ggybbly68c.vercel.app](https://portfolio-six-murex-ggybbly68c.vercel.app/)
+👉 **Live App:** [View Project](https://portfolio-six-murex-ggybbly68c.vercel.app/)
 
 </div>
 
