@@ -1,6 +1,6 @@
 import React from 'react';
 import { Award, ExternalLink, Calendar, CheckCircle2 } from 'lucide-react';
-import { portfolioData } from '../data/mockData';
+import { portfolioData } from '../../data/mockData';
 import { motion } from 'framer-motion';
 
 const CertificationsSection = () => {

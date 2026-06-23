@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FolderOpen, ExternalLink, Github, Zap, Mic, Target, Layout, Users, ChevronDown, Cpu, Layers } from 'lucide-react';
-import { portfolioData } from '../data/mockData';
+import { portfolioData } from '../../data/mockData';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ProjectsSection = () => {

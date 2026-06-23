@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Terminal } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
-import SystemStatus from './SystemStatus';
+import { useTheme } from '../shared/ThemeProvider';
+import SystemStatus from '../terminal/SystemStatus';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal as TerminalIcon, X, Minus, Square } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { portfolioData } from '../data/mockData';
+import { portfolioData } from '../../data/mockData';
 
 const Terminal = () => {
     const [input, setInput] = useState('');

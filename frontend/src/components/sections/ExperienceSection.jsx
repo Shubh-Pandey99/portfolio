@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase, MapPin, Calendar, Building2 } from 'lucide-react';
-import { portfolioData } from '../data/mockData';
+import { portfolioData } from '../../data/mockData';
 import { motion } from 'framer-motion';
 
 const ExperienceSection = () => {

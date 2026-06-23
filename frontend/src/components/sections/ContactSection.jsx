@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
 import { Mail, Phone, Linkedin, Send, MessageCircle } from 'lucide-react';
-import { portfolioData } from '../data/mockData';
+import { portfolioData } from '../../data/mockData';
 
 const ContactSection = () => {
   const { contact } = portfolioData;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Code, Cloud, Monitor, Server, Terminal, CheckCircle2, Award } from 'lucide-react';
-import { portfolioData } from '../data/mockData';
+import { portfolioData } from '../../data/mockData';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SkillsSection = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { User, Briefcase, TrendingDown, ShieldCheck, Zap } from 'lucide-react';
-import { portfolioData } from '../data/mockData';
-import Terminal from './Terminal';
+import { portfolioData } from '../../data/mockData';
+import Terminal from '../terminal/Terminal';
 
 const iconMap = {
   Zap: Zap,

@@ -1,19 +1,19 @@
 import React from 'react';
-import { ThemeProvider } from './components/ThemeProvider';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import SkillsSection from './components/SkillsSection';
-import ExperienceSection from './components/ExperienceSection';
-import EducationSection from './components/EducationSection';
-import CertificationsSection from './components/CertificationsSection';
-import ProjectsSection from './components/ProjectsSection';
-import BlogsSection from './components/BlogsSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
-import FloatingControls from './components/FloatingControls';
-import Reveal from './components/Reveal';
-import CommandMenu from './components/CommandMenu';
+import { ThemeProvider } from './components/shared/ThemeProvider';
+import Header from './components/layout/Header';
+import HeroSection from './components/sections/HeroSection';
+import AboutSection from './components/sections/AboutSection';
+import SkillsSection from './components/sections/SkillsSection';
+import ExperienceSection from './components/sections/ExperienceSection';
+import EducationSection from './components/sections/EducationSection';
+import CertificationsSection from './components/sections/CertificationsSection';
+import ProjectsSection from './components/sections/ProjectsSection';
+import BlogsSection from './components/sections/BlogsSection';
+import ContactSection from './components/sections/ContactSection';
+import Footer from './components/layout/Footer';
+import FloatingControls from './components/layout/FloatingControls';
+import Reveal from './components/shared/Reveal';
+import CommandMenu from './components/terminal/CommandMenu';
 
 const PortfolioContent = () => {
     return (

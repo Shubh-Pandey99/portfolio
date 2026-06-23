@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ChevronDown, Rocket, Shield, Cpu } from 'lucide-react';
-import { portfolioData } from '../data/mockData';
+import { portfolioData } from '../../data/mockData';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const HeroSection = () => {
